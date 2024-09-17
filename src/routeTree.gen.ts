@@ -11,32 +11,26 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as StampDutyCalculatorImport } from './routes/stampDutyCalculator'
 import { Route as ServicesImport } from './routes/services'
-import { Route as MortgageCalculatorImport } from './routes/mortgageCalculator'
 import { Route as ContactImport } from './routes/contact'
+import { Route as CalculatorImport } from './routes/calculator'
 import { Route as AboutImport } from './routes/about'
 import { Route as IndexImport } from './routes/index'
 
 // Create/Update Routes
-
-const StampDutyCalculatorRoute = StampDutyCalculatorImport.update({
-  path: '/stampDutyCalculator',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const ServicesRoute = ServicesImport.update({
   path: '/services',
   getParentRoute: () => rootRoute,
 } as any)
 
-const MortgageCalculatorRoute = MortgageCalculatorImport.update({
-  path: '/mortgageCalculator',
+const ContactRoute = ContactImport.update({
+  path: '/contact',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ContactRoute = ContactImport.update({
-  path: '/contact',
+const CalculatorRoute = CalculatorImport.update({
+  path: '/calculator',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -68,6 +62,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutImport
       parentRoute: typeof rootRoute
     }
+    '/calculator': {
+      id: '/calculator'
+      path: '/calculator'
+      fullPath: '/calculator'
+      preLoaderRoute: typeof CalculatorImport
+      parentRoute: typeof rootRoute
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -75,25 +76,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactImport
       parentRoute: typeof rootRoute
     }
-    '/mortgageCalculator': {
-      id: '/mortgageCalculator'
-      path: '/mortgageCalculator'
-      fullPath: '/mortgageCalculator'
-      preLoaderRoute: typeof MortgageCalculatorImport
-      parentRoute: typeof rootRoute
-    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesImport
-      parentRoute: typeof rootRoute
-    }
-    '/stampDutyCalculator': {
-      id: '/stampDutyCalculator'
-      path: '/stampDutyCalculator'
-      fullPath: '/stampDutyCalculator'
-      preLoaderRoute: typeof StampDutyCalculatorImport
       parentRoute: typeof rootRoute
     }
   }
@@ -104,75 +91,51 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
-  '/mortgageCalculator': typeof MortgageCalculatorRoute
   '/services': typeof ServicesRoute
-  '/stampDutyCalculator': typeof StampDutyCalculatorRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
-  '/mortgageCalculator': typeof MortgageCalculatorRoute
   '/services': typeof ServicesRoute
-  '/stampDutyCalculator': typeof StampDutyCalculatorRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
-  '/mortgageCalculator': typeof MortgageCalculatorRoute
   '/services': typeof ServicesRoute
-  '/stampDutyCalculator': typeof StampDutyCalculatorRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/mortgageCalculator'
-    | '/services'
-    | '/stampDutyCalculator'
+  fullPaths: '/' | '/about' | '/calculator' | '/contact' | '/services'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/mortgageCalculator'
-    | '/services'
-    | '/stampDutyCalculator'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/contact'
-    | '/mortgageCalculator'
-    | '/services'
-    | '/stampDutyCalculator'
+  to: '/' | '/about' | '/calculator' | '/contact' | '/services'
+  id: '__root__' | '/' | '/about' | '/calculator' | '/contact' | '/services'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
-  MortgageCalculatorRoute: typeof MortgageCalculatorRoute
   ServicesRoute: typeof ServicesRoute
-  StampDutyCalculatorRoute: typeof StampDutyCalculatorRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
-  MortgageCalculatorRoute: MortgageCalculatorRoute,
   ServicesRoute: ServicesRoute,
-  StampDutyCalculatorRoute: StampDutyCalculatorRoute,
 }
 
 export const routeTree = rootRoute
@@ -189,10 +152,9 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/about",
+        "/calculator",
         "/contact",
-        "/mortgageCalculator",
-        "/services",
-        "/stampDutyCalculator"
+        "/services"
       ]
     },
     "/": {
@@ -201,17 +163,14 @@ export const routeTree = rootRoute
     "/about": {
       "filePath": "about.tsx"
     },
+    "/calculator": {
+      "filePath": "calculator.tsx"
+    },
     "/contact": {
       "filePath": "contact.tsx"
     },
-    "/mortgageCalculator": {
-      "filePath": "mortgageCalculator.tsx"
-    },
     "/services": {
       "filePath": "services.tsx"
-    },
-    "/stampDutyCalculator": {
-      "filePath": "stampDutyCalculator.tsx"
     }
   }
 }
