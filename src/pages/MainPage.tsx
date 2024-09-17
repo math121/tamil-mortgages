@@ -1,4 +1,8 @@
+import { useNavigate } from "@tanstack/react-router";
+
 export const MainPage = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <img
@@ -45,13 +49,22 @@ export const MainPage = () => {
       </div>
 
       <div className="flex flex-col mx-24 mt-7 gap-3">
-        <button className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green">
+        <button
+          className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green"
+          onClick={() => navigate({ to: "/services" })}
+        >
           Services
         </button>
-        <button className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green">
+        <button
+          className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green"
+          onClick={() => navigate({ to: "/mortgageCalculator" })}
+        >
           Mortgage calculator
         </button>
-        <button className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green">
+        <button
+          className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green"
+          onClick={() => navigate({ to: "/stampDutyCalculator" })}
+        >
           Stamp duty calculator
         </button>
       </div>
