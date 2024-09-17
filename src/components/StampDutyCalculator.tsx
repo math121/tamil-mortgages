@@ -39,7 +39,7 @@ export const StampDutyCalculator = () => {
         onSubmit={handleSubmit(calculateStampDuty)}
         className="flex flex-col items-center gap-4"
       >
-        <label className="block mb-2 text-sm font-medium">Username</label>
+        <label className="block mb-2 text-sm font-medium">Property price</label>
         <div className="flex">
           <span className="inline-flex items-center px-3">
             <svg

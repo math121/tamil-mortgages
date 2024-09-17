@@ -60,3 +60,44 @@ export const stampDutySecondTimeBuyer = (propertyPrice: number) => {
   }
   return { stampDuty: rate12 * propertyPrice, rate: rate12 };
 };
+
+type AffordabilityInputs = {
+  numPeople: number;
+  income1: number;
+  income2: number;
+  totalOutgoings1: number;
+  totalOutgoings2: number;
+};
+
+//api - get live rates
+
+export const affordabilityFormula = (data: AffordabilityInputs): number[] => {
+  /* 
+  1 or 2 people
+  factors - deposit, credit
+
+  input : total outgoings (tax, NI, phone bills, credit card bills and any other outgoings)  (per month)
+
+  wage - (total outgoings*12) = remaining amount
+
+  estimated amount:
+  remaining amount * 4.5 = total amount they can borrow from bank  (+/- 10% of total amount)  display range
+  */
+
+  const rangePlusMinusPercent = 0.1;
+  const incomeMultiplier = 4.5;
+
+  const totalOutgoings =
+    Number(data.totalOutgoings1) * 12 + Number(data.totalOutgoings2) * 12;
+  const totalIncome = Number(data.income1) + Number(data.income2);
+
+  const remainingAmount = totalIncome - totalOutgoings;
+  const estimatedAmount = remainingAmount * incomeMultiplier;
+
+  const lowerEstimate =
+    estimatedAmount - estimatedAmount * rangePlusMinusPercent;
+  const higherEstimate =
+    estimatedAmount + estimatedAmount * rangePlusMinusPercent;
+
+  return [lowerEstimate, higherEstimate];
+};

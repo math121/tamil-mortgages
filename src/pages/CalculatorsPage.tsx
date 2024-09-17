@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MortgageCalculator } from "../components/MortgageCalculator";
+import { AffordabilityCalc } from "../components/AffordabilityCalc";
 import { StampDutyCalculator } from "../components/StampDutyCalculator";
 
 export const CalculatorsPage = () => {
@@ -28,7 +28,7 @@ export const CalculatorsPage = () => {
 
       {/*Tab contents*/}
       <div className={`${activeTab === 0 ? "" : "hidden"}`}>
-        <MortgageCalculator />
+        <AffordabilityCalc />
       </div>
       <div className={`${activeTab === 1 ? "" : "hidden"}`}>
         <StampDutyCalculator />
