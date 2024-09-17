@@ -1,4 +1,4 @@
-import { act, useState } from "react";
+import { useState } from "react";
 import { MortgageCalculator } from "../components/MortgageCalculator";
 import { StampDutyCalculator } from "../components/StampDutyCalculator";
 
