@@ -60,7 +60,7 @@ export const MainPage = () => {
             className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green lg:text-lg"
             onClick={() => navigate({ to: "/calculator" })}
           >
-            Mortgage calculator
+            Affordability calculator
           </button>
           <button
             className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green lg:text-lg"

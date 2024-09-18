@@ -14,7 +14,7 @@ export const CalculatorsPage = () => {
           } `}
           onClick={() => setActiveTab(0)}
         >
-          Mortgage calculator
+          Affordability calculator
         </button>
         <button
           className={`block px-7 pb-3.5 pt-4 text-xs uppercase hover:bg-blue-300 focus:ring-2 focus:bg-white focus:text-blue-600 ${
