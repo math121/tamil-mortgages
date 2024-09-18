@@ -1,6 +1,10 @@
 import { Link, Outlet } from "@tanstack/react-router";
+import { useState } from "react";
+import { Sidebar } from "./Sidebar";
 
 export const NavBar = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <>
       <nav className="bg-dark-green rounded-lg">
@@ -12,7 +16,10 @@ export const NavBar = () => {
               alt="All Credit Mortgages Logo"
             />
           </Link>
-          <button className="p-2 w-10 h-10 rounded-lg bg-dark-green border-0 cursor-pointer text-white hover:bg-light-green lg:w-16 lg:h-16">
+          <button
+            className="p-2 w-10 h-10 rounded-lg bg-dark-green border-0 cursor-pointer text-white hover:bg-light-green lg:w-16 lg:h-16"
+            onClick={() => setShowSidebar(true)}
+          >
             <svg
               className="w-6 h-6 lg:w-10 lg:h-10"
               aria-hidden="true"
@@ -31,6 +38,8 @@ export const NavBar = () => {
           </button>
         </div>
       </nav>
+
+      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <Outlet />
     </>
   );
