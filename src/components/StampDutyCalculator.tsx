@@ -34,76 +34,71 @@ export const StampDutyCalculator = () => {
   };
 
   return (
-    <>
-      <form
-        onSubmit={handleSubmit(calculateStampDuty)}
-        className="flex flex-col items-center gap-4"
-      >
-        <label className="block mb-2 text-sm font-medium">Property price</label>
+    <div className="p-2">
+      <p>
+        Specify the property price in pounds and tick the box if you are a first
+        time buyer or a second time buyer/ buying additional properties
+      </p>
+      <form onSubmit={handleSubmit(calculateStampDuty)} className="space-y-3">
+        <label className="font-semibold">Property price:</label>
         <div className="flex">
-          <span className="inline-flex items-center px-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M14.121 7.629A3 3 0 0 0 9.017 9.43c-.023.212-.002.425.028.636l.506 3.541a4.5 4.5 0 0 1-.43 2.65L9 16.5l1.539-.513a2.25 2.25 0 0 1 1.422 0l.655.218a2.25 2.25 0 0 0 1.718-.122L15 15.75M8.25 12H12m9 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              />
-            </svg>
+          <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+            £
           </span>
           <input
             type="number"
+            className="text-sm p-2 rounded-e-md border border-dark-green"
+            defaultValue={0}
             {...register("propertyPrice", { required: true })}
           />
         </div>
 
-        <fieldset>
+        <fieldset className="border-none p-0 pt-4 flex justify-around gap-4">
           <div className="flex items-center mb-4">
             <input
-              id="option-1"
+              id="firstbuy"
               type="radio"
               value="First time buyer"
+              className="w-8 h-8 accent-dark-green"
               {...register("typeBuyer")}
             />
-            <label
-              htmlFor="option-1"
-              className="block ms-2 text-sm font-medium"
-            >
+            <label htmlFor="firstbuy" className="ms-2 text-base">
               First time buyer
             </label>
           </div>
 
           <div className="flex items-center mb-4">
             <input
-              id="option-2"
+              id="secondbuy"
               type="radio"
               value="Second time buyer/additional properties"
+              className="w-8 h-8 accent-dark-green"
               {...register("typeBuyer")}
             />
-            <label
-              htmlFor="option-2"
-              className="block ms-2 text-sm font-medium "
-            >
+            <label htmlFor="secondbuy" className=" ms-2 text-base">
               Second time buyer/ additional properties
             </label>
           </div>
         </fieldset>
-        <button type="submit">Calculate</button>
+        <button
+          type="submit"
+          className="p-2 w-2/6 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green"
+        >
+          Calculate
+        </button>
       </form>
 
       {result && rate && (
         <>
-          <p>Results:</p>
-          <p>Stamp Duty: {result}</p>
-          <p>Rate: {rate}</p>
+          <section className="border-2 border-solid border-dark-green rounded-xl px-2 mt-10">
+            <div className="gap-3 items-center">
+              <p>Stamp duty on your first property/additional property is</p>
+              <p className="font-bold text-2xl my-0">{result}</p>
+              <p>Rate: {rate}</p>
+            </div>
+          </section>
         </>
       )}
-    </>
+    </div>
   );
 };

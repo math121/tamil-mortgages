@@ -13,6 +13,7 @@ export default {
       colors: {
         "dark-green": "#005031",
         "light-green": "#25664e",
+        "lightest-green": "#d2e2db",
       },
       fontFamily: {
         forum: ['"Forum"', ...defaultTheme.fontFamily.sans],
