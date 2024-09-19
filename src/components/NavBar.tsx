@@ -1,6 +1,7 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
+import { Footer } from "./Footer";
 
 export const NavBar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -40,7 +41,10 @@ export const NavBar = () => {
       </nav>
 
       <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
-      <Outlet />
+      <main className="w-full min-h-screen">
+        <Outlet />
+      </main>
+      <Footer />
     </>
   );
 };
