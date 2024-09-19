@@ -104,7 +104,7 @@ export const StampDutyCalculator = () => {
 
         <button
           type="submit"
-          className="p-2 w-48 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green sm:w-60 mt-10"
+          className="p-2 w-48 rounded-full text-white text-base bg-dark-green cursor-pointer hover:bg-light-green sm:w-60 mt-10"
         >
           Calculate
         </button>

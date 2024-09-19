@@ -11,10 +11,10 @@ export const CalculatorsPage = () => {
         role="tablist"
       >
         <button
-          className={`pb-3.5 pt-4 text-sm uppercase border-0 bg-white text-gray-500 hover:text-dark-green  ${
+          className={`pb-3.5 pt-4 text-sm uppercase border-0 bg-white hover:text-dark-green  ${
             location.pathname === "/affordabilityCalculator"
               ? "text-dark-green font-bold border-solid border-b-2 border-dark-green"
-              : ""
+              : "text-gray-500"
           } `}
           onClick={() => {
             navigate({ to: "/affordabilityCalculator" });
@@ -23,10 +23,10 @@ export const CalculatorsPage = () => {
           Affordability calculator
         </button>
         <button
-          className={`pb-3.5 pt-4 text-sm uppercase border-0 bg-white text-gray-500 hover:text-dark-green  ${
+          className={`pb-3.5 pt-4 text-sm uppercase border-0 bg-white hover:text-dark-green  ${
             location.pathname === "/stampDutyCalculator"
               ? "text-dark-green font-bold border-solid border-b-2 border-dark-green"
-              : ""
+              : "text-gray-500"
           } `}
           onClick={() => {
             navigate({ to: "/stampDutyCalculator" });
