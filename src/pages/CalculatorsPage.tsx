@@ -1,38 +1,38 @@
-import { useState } from "react";
-import { AffordabilityCalc } from "../components/AffordabilityCalc";
-import { StampDutyCalculator } from "../components/StampDutyCalculator";
+import { Outlet, useNavigate, useLocation } from "@tanstack/react-router";
 
 export const CalculatorsPage = () => {
-  const [activeTab, setActiveTab] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <>
       <div className="flex justify-center list-none pt-4" role="tablist">
         <button
           className={`block px-7 pb-3.5 pt-4 text-xs uppercase hover:bg-blue-300 focus:ring-2 focus:bg-white focus:text-blue-600 ${
-            activeTab === 0 ? "ring-2 bg-white text-blue-600" : ""
+            location.pathname === "/affordabilityCalculator"
+              ? "ring-2 bg-white text-blue-600"
+              : ""
           } `}
-          onClick={() => setActiveTab(0)}
+          onClick={() => {
+            navigate({ to: "/affordabilityCalculator" });
+          }}
         >
           Affordability calculator
         </button>
         <button
           className={`block px-7 pb-3.5 pt-4 text-xs uppercase hover:bg-blue-300 focus:ring-2 focus:bg-white focus:text-blue-600 ${
-            activeTab === 1 ? "ring-2 bg-white text-blue-600" : ""
+            location.pathname === "/stampDutyCalculator"
+              ? "ring-2 bg-white text-blue-600"
+              : ""
           } `}
-          onClick={() => setActiveTab(1)}
+          onClick={() => {
+            navigate({ to: "/stampDutyCalculator" });
+          }}
         >
           Stamp Duty
         </button>
       </div>
-
-      {/*Tab contents*/}
-      <div className={`${activeTab === 0 ? "" : "hidden"}`}>
-        <AffordabilityCalc />
-      </div>
-      <div className={`${activeTab === 1 ? "" : "hidden"}`}>
-        <StampDutyCalculator />
-      </div>
+      <Outlet />
     </>
   );
 };

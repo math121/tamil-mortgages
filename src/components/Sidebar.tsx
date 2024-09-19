@@ -37,14 +37,14 @@ export const Sidebar = ({
             Services
           </Link>
           <Link
-            to="/calculator"
+            to="/affordabilityCalculator"
             className="text-white no-underline hover:underline hover:font-bold"
             onClick={() => setShowSidebar(false)}
           >
             Affordability calculator
           </Link>
           <Link
-            to="/calculator"
+            to="/stampDutyCalculator"
             className="text-white no-underline hover:underline hover:font-bold"
             onClick={() => setShowSidebar(false)}
           >

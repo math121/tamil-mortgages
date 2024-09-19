@@ -58,13 +58,13 @@ export const MainPage = () => {
           </button>
           <button
             className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green lg:text-lg"
-            onClick={() => navigate({ to: "/calculator" })}
+            onClick={() => navigate({ to: "/affordabilityCalculator" })}
           >
             Affordability calculator
           </button>
           <button
             className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green lg:text-lg"
-            onClick={() => navigate({ to: "/calculator" })}
+            onClick={() => navigate({ to: "/stampDutyCalculator" })}
           >
             Stamp duty calculator
           </button>

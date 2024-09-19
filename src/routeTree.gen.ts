@@ -13,9 +13,11 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as ServicesImport } from './routes/services'
 import { Route as ContactImport } from './routes/contact'
-import { Route as CalculatorImport } from './routes/calculator'
 import { Route as AboutImport } from './routes/about'
+import { Route as CalculatorsImport } from './routes/_calculators'
 import { Route as IndexImport } from './routes/index'
+import { Route as CalculatorsStampDutyCalculatorImport } from './routes/_calculators/stampDutyCalculator'
+import { Route as CalculatorsAffordabilityCalculatorImport } from './routes/_calculators/affordabilityCalculator'
 
 // Create/Update Routes
 
@@ -29,13 +31,13 @@ const ContactRoute = ContactImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const CalculatorRoute = CalculatorImport.update({
-  path: '/calculator',
+const AboutRoute = AboutImport.update({
+  path: '/about',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AboutRoute = AboutImport.update({
-  path: '/about',
+const CalculatorsRoute = CalculatorsImport.update({
+  id: '/_calculators',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -43,6 +45,18 @@ const IndexRoute = IndexImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any)
+
+const CalculatorsStampDutyCalculatorRoute =
+  CalculatorsStampDutyCalculatorImport.update({
+    path: '/stampDutyCalculator',
+    getParentRoute: () => CalculatorsRoute,
+  } as any)
+
+const CalculatorsAffordabilityCalculatorRoute =
+  CalculatorsAffordabilityCalculatorImport.update({
+    path: '/affordabilityCalculator',
+    getParentRoute: () => CalculatorsRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -55,18 +69,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/_calculators': {
+      id: '/_calculators'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof CalculatorsImport
+      parentRoute: typeof rootRoute
+    }
     '/about': {
       id: '/about'
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutImport
-      parentRoute: typeof rootRoute
-    }
-    '/calculator': {
-      id: '/calculator'
-      path: '/calculator'
-      fullPath: '/calculator'
-      preLoaderRoute: typeof CalculatorImport
       parentRoute: typeof rootRoute
     }
     '/contact': {
@@ -83,57 +97,114 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesImport
       parentRoute: typeof rootRoute
     }
+    '/_calculators/affordabilityCalculator': {
+      id: '/_calculators/affordabilityCalculator'
+      path: '/affordabilityCalculator'
+      fullPath: '/affordabilityCalculator'
+      preLoaderRoute: typeof CalculatorsAffordabilityCalculatorImport
+      parentRoute: typeof CalculatorsImport
+    }
+    '/_calculators/stampDutyCalculator': {
+      id: '/_calculators/stampDutyCalculator'
+      path: '/stampDutyCalculator'
+      fullPath: '/stampDutyCalculator'
+      preLoaderRoute: typeof CalculatorsStampDutyCalculatorImport
+      parentRoute: typeof CalculatorsImport
+    }
   }
 }
 
 // Create and export the route tree
 
+interface CalculatorsRouteChildren {
+  CalculatorsAffordabilityCalculatorRoute: typeof CalculatorsAffordabilityCalculatorRoute
+  CalculatorsStampDutyCalculatorRoute: typeof CalculatorsStampDutyCalculatorRoute
+}
+
+const CalculatorsRouteChildren: CalculatorsRouteChildren = {
+  CalculatorsAffordabilityCalculatorRoute:
+    CalculatorsAffordabilityCalculatorRoute,
+  CalculatorsStampDutyCalculatorRoute: CalculatorsStampDutyCalculatorRoute,
+}
+
+const CalculatorsRouteWithChildren = CalculatorsRoute._addFileChildren(
+  CalculatorsRouteChildren,
+)
+
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '': typeof CalculatorsRouteWithChildren
   '/about': typeof AboutRoute
-  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
+  '/affordabilityCalculator': typeof CalculatorsAffordabilityCalculatorRoute
+  '/stampDutyCalculator': typeof CalculatorsStampDutyCalculatorRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '': typeof CalculatorsRouteWithChildren
   '/about': typeof AboutRoute
-  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
+  '/affordabilityCalculator': typeof CalculatorsAffordabilityCalculatorRoute
+  '/stampDutyCalculator': typeof CalculatorsStampDutyCalculatorRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/_calculators': typeof CalculatorsRouteWithChildren
   '/about': typeof AboutRoute
-  '/calculator': typeof CalculatorRoute
   '/contact': typeof ContactRoute
   '/services': typeof ServicesRoute
+  '/_calculators/affordabilityCalculator': typeof CalculatorsAffordabilityCalculatorRoute
+  '/_calculators/stampDutyCalculator': typeof CalculatorsStampDutyCalculatorRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/calculator' | '/contact' | '/services'
+  fullPaths:
+    | '/'
+    | ''
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/affordabilityCalculator'
+    | '/stampDutyCalculator'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/calculator' | '/contact' | '/services'
-  id: '__root__' | '/' | '/about' | '/calculator' | '/contact' | '/services'
+  to:
+    | '/'
+    | ''
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/affordabilityCalculator'
+    | '/stampDutyCalculator'
+  id:
+    | '__root__'
+    | '/'
+    | '/_calculators'
+    | '/about'
+    | '/contact'
+    | '/services'
+    | '/_calculators/affordabilityCalculator'
+    | '/_calculators/stampDutyCalculator'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CalculatorsRoute: typeof CalculatorsRouteWithChildren
   AboutRoute: typeof AboutRoute
-  CalculatorRoute: typeof CalculatorRoute
   ContactRoute: typeof ContactRoute
   ServicesRoute: typeof ServicesRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CalculatorsRoute: CalculatorsRouteWithChildren,
   AboutRoute: AboutRoute,
-  CalculatorRoute: CalculatorRoute,
   ContactRoute: ContactRoute,
   ServicesRoute: ServicesRoute,
 }
@@ -151,8 +222,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/_calculators",
         "/about",
-        "/calculator",
         "/contact",
         "/services"
       ]
@@ -160,17 +231,29 @@ export const routeTree = rootRoute
     "/": {
       "filePath": "index.tsx"
     },
+    "/_calculators": {
+      "filePath": "_calculators.tsx",
+      "children": [
+        "/_calculators/affordabilityCalculator",
+        "/_calculators/stampDutyCalculator"
+      ]
+    },
     "/about": {
       "filePath": "about.tsx"
-    },
-    "/calculator": {
-      "filePath": "calculator.tsx"
     },
     "/contact": {
       "filePath": "contact.tsx"
     },
     "/services": {
       "filePath": "services.tsx"
+    },
+    "/_calculators/affordabilityCalculator": {
+      "filePath": "_calculators/affordabilityCalculator.tsx",
+      "parent": "/_calculators"
+    },
+    "/_calculators/stampDutyCalculator": {
+      "filePath": "_calculators/stampDutyCalculator.tsx",
+      "parent": "/_calculators"
     }
   }
 }
