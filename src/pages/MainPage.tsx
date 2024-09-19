@@ -6,12 +6,12 @@ export const MainPage = () => {
   return (
     <div className="lg:grid grid-cols-2 lg:pl-4 lg:gap-8 lg:pr-20">
       <img
-        className="object-cover h-48 w-full pt-4 lg:h-full"
+        className="object-cover h-48 w-full pt-4 lg:h-screen"
         src="/src/assets/frontpage-house.JPG"
         alt="Picture with UK houses"
       />
-      <div className="lg:pt-6">
-        <h1 className="font-forum text-5xl my-3 ml-2 font-thin lg:text-7xl">
+      <div className="lg:pt-10">
+        <h1 className="font-forum text-5xl my-4 ml-2 font-thin lg:text-7xl">
           Mortgages made simple
         </h1>
         <div className="flex items-center gap-2 ml-2 lg:pr-4">
@@ -20,7 +20,7 @@ export const MainPage = () => {
             src="/src/assets/frontpage-tick.png"
             alt="green tick icon"
           />
-          <p className="my-2 font-semibold lg:text-xl">
+          <p className="my-4 font-semibold lg:text-xl">
             Your Mortgage Partner—No Credit or Income Too Complex!
           </p>
         </div>
@@ -49,21 +49,21 @@ export const MainPage = () => {
           </p>
         </div>
 
-        <div className="flex flex-col mx-24 mt-7 gap-3 lg:w-fit lg:ml-0">
+        <div className="flex flex-col mx-16 mt-7 gap-4 lg:w-fit lg:ml-0 lg:gap-7 lg:mt-14">
           <button
-            className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green cursor-pointer lg:text-lg lg:px-24"
+            className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green cursor-pointer text-base lg:px-24"
             onClick={() => navigate({ to: "/services" })}
           >
             Services
           </button>
           <button
-            className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green lg:text-lg"
+            className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green text-base"
             onClick={() => navigate({ to: "/affordabilityCalculator" })}
           >
             Affordability calculator
           </button>
           <button
-            className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green lg:text-lg"
+            className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green text-base"
             onClick={() => navigate({ to: "/stampDutyCalculator" })}
           >
             Stamp duty calculator
