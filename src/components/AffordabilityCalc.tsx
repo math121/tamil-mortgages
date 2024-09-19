@@ -15,102 +15,70 @@ export const AffordabilityCalc = () => {
 
   const { register, handleSubmit } = useForm<AffordabilityInputs>();
 
-  const calculateMortgage: SubmitHandler<AffordabilityInputs> = (data) => {
+  const calculateAffordability: SubmitHandler<AffordabilityInputs> = (data) => {
     console.log(data);
     const range = affordabilityFormula(data);
     setEstimatedRange(range);
   };
 
   return (
-    <>
+    <div className="p-2">
+      <p>Estimate how much you can borrow for your next property.</p>
       <form
-        onSubmit={handleSubmit(calculateMortgage)}
-        className="flex flex-col items-center gap-4"
+        onSubmit={handleSubmit(calculateAffordability)}
+        className="grid gap-4"
       >
-        <label className="block mb-2 text-sm font-medium">
-          No. of people applying
-        </label>
-        <fieldset className="flex justify-around">
-          <div className="flex items-center mb-4">
+        <label className="font-semibold">No. of people applying:</label>
+
+        <fieldset className="border-none p-0 flex gap-10">
+          <div className="flex items-center">
             <input
-              id="option-1"
+              id="1"
               type="radio"
-              value={1}
-              {...register("numPeople", { required: true })}
+              value="1"
+              className="w-8 h-8 accent-dark-green"
+              {...register("numPeople")}
             />
-            <label
-              htmlFor="option-1"
-              className="block ms-2 text-sm font-medium"
-            >
+            <label htmlFor="1" className="ms-2 text-base">
               1
             </label>
           </div>
 
-          <div className="flex items-center mb-4">
+          <div className="flex items-center">
             <input
-              id="option-2"
+              id="2"
               type="radio"
-              value={2}
-              {...register("numPeople", { required: true })}
+              value="2"
+              className="w-8 h-8 accent-dark-green"
+              {...register("numPeople")}
             />
-            <label
-              htmlFor="option-2"
-              className="block ms-2 text-sm font-medium"
-            >
+            <label htmlFor="2" className="ms-2 text-base">
               2
             </label>
           </div>
         </fieldset>
 
-        <label className="block mb-2 text-sm font-medium">
-          1st person annual income
-        </label>
+        <label className="font-semibold">1st person annual income:</label>
         <div className="flex">
-          <span className="inline-flex items-center px-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M14.121 7.629A3 3 0 0 0 9.017 9.43c-.023.212-.002.425.028.636l.506 3.541a4.5 4.5 0 0 1-.43 2.65L9 16.5l1.539-.513a2.25 2.25 0 0 1 1.422 0l.655.218a2.25 2.25 0 0 0 1.718-.122L15 15.75M8.25 12H12m9 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              />
-            </svg>
+          <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+            £
           </span>
           <input
             type="number"
+            className="text-sm p-2 rounded-e-md border border-dark-green"
             defaultValue={0}
             {...register("income1", { required: true })}
           />
         </div>
 
-        <label className="block mb-2 text-sm font-medium">
-          1st person monthly outgoings
-        </label>
+        <label className="font-semibold">1st person monthly outgoings:</label>
         <div className="flex">
-          <span className="inline-flex items-center px-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M14.121 7.629A3 3 0 0 0 9.017 9.43c-.023.212-.002.425.028.636l.506 3.541a4.5 4.5 0 0 1-.43 2.65L9 16.5l1.539-.513a2.25 2.25 0 0 1 1.422 0l.655.218a2.25 2.25 0 0 0 1.718-.122L15 15.75M8.25 12H12m9 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-              />
-            </svg>
+          <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+            £
           </span>
           <input
             type="number"
+            className="text-sm p-2 rounded-e-md border border-dark-green"
             defaultValue={0}
             {...register("totalOutgoings1", { required: true })}
           />
@@ -118,74 +86,74 @@ export const AffordabilityCalc = () => {
 
         {
           <>
-            <label className="block mb-2 text-sm font-medium">
-              2nd person annual income
-            </label>
+            <label className="font-semibold">2nd person annual income:</label>
             <div className="flex">
-              <span className="inline-flex items-center px-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M14.121 7.629A3 3 0 0 0 9.017 9.43c-.023.212-.002.425.028.636l.506 3.541a4.5 4.5 0 0 1-.43 2.65L9 16.5l1.539-.513a2.25 2.25 0 0 1 1.422 0l.655.218a2.25 2.25 0 0 0 1.718-.122L15 15.75M8.25 12H12m9 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              </span>
-              <input type="number" defaultValue={0} {...register("income2")} />
-            </div>
-
-            <label className="block mb-2 text-sm font-medium">
-              2st person monthly outgoings
-            </label>
-            <div className="flex">
-              <span className="inline-flex items-center px-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M14.121 7.629A3 3 0 0 0 9.017 9.43c-.023.212-.002.425.028.636l.506 3.541a4.5 4.5 0 0 1-.43 2.65L9 16.5l1.539-.513a2.25 2.25 0 0 1 1.422 0l.655.218a2.25 2.25 0 0 0 1.718-.122L15 15.75M8.25 12H12m9 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
+              <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+                £
               </span>
               <input
                 type="number"
+                className="text-sm p-2 rounded-e-md border border-dark-green"
                 defaultValue={0}
-                {...register("totalOutgoings2")}
+                {...register("income2", { required: true })}
+              />
+            </div>
+
+            <label className="font-semibold">
+              2nd person monthly outgoings:
+            </label>
+            <div className="flex">
+              <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+                £
+              </span>
+              <input
+                type="number"
+                className="text-sm p-2 rounded-e-md border border-dark-green"
+                defaultValue={0}
+                {...register("totalOutgoings2", { required: true })}
               />
             </div>
           </>
         }
 
-        <button type="submit">Calculate</button>
+        <button
+          type="submit"
+          className="p-2 w-2/6 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green mt-4"
+        >
+          Calculate
+        </button>
       </form>
 
       {estimatedRange.length !== 0 && (
         <>
-          <p>Range:</p>
-          <p>
-            {"£" +
-              estimatedRange[0] / 1000 +
-              "k - " +
-              "£" +
-              estimatedRange[1] / 1000 +
-              "k"}
-          </p>
+          <section className="border-2 border-solid border-dark-green rounded-xl px-2 mt-10">
+            <div className="gap-3 items-center">
+              <p>Estimated amount you can borrow:</p>
+              <p className="font-bold text-2xl my-0">
+                {"£" +
+                  estimatedRange[0] / 1000 +
+                  "k - " +
+                  "£" +
+                  estimatedRange[1] / 1000 +
+                  "k"}
+              </p>
+              <p>Lenders usually lend between 4-5 times your salary</p>
+              <p>
+                Hor much you can borrow can be affected by various factors like
+                these:
+              </p>
+              <ul>
+                <li>Credit rating</li>
+                <li>Loans / Credit balances</li>
+                <li>Children / dependents</li>
+                <li>Age</li>
+                <li>Mortgage term</li>
+                <li>Employment status</li>
+              </ul>
+            </div>
+          </section>
         </>
       )}
-    </>
+    </div>
   );
 };
