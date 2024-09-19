@@ -14,10 +14,13 @@ export const AffordabilityCalc = () => {
   const [estimatedRange, setEstimatedRange] = useState<number[]>([]);
   const [radioNum, setRadioNum] = useState(1);
 
-  const { register, handleSubmit } = useForm<AffordabilityInputs>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<AffordabilityInputs>();
 
   const calculateAffordability: SubmitHandler<AffordabilityInputs> = (data) => {
-    console.log(data);
     const range = affordabilityFormula(data);
     setEstimatedRange(range);
   };
@@ -26,26 +29,26 @@ export const AffordabilityCalc = () => {
     <div className="p-2 md:flex md:gap-10">
       <form
         onSubmit={handleSubmit(calculateAffordability)}
-        className="grid gap-4 md:w-2/3"
+        className="md:w-3/6"
       >
         <p>Estimate how much you can borrow for your next property.</p>
-        <label className="font-semibold">No. of people applying:</label>
-
-        <fieldset className="border-none p-0 flex gap-10">
+        <label className="font-semibold block">No. of people applying:</label>
+        <fieldset className="border-none pt-0 flex justify-normal gap-7 mt-4">
           <div className="flex items-center">
             <input
               id="1"
               type="radio"
               value="1"
-              className="w-7 h-7 accent-dark-green"
-              defaultChecked
-              {...register("numPeople")}
-              onChange={() => {
+              className="w-7 h-7 accent-dark-green cursor-pointer"
+              {...register("numPeople", {
+                required: "Select one of the options above",
+              })}
+              onClick={() => {
                 setRadioNum(1);
                 setEstimatedRange([]);
               }}
             />
-            <label htmlFor="1" className="ms-2 text-base">
+            <label htmlFor="1" className="px-5 text-base cursor-pointer">
               1
             </label>
           </div>
@@ -55,20 +58,25 @@ export const AffordabilityCalc = () => {
               id="2"
               type="radio"
               value="2"
-              className="w-7 h-7 accent-dark-green"
-              {...register("numPeople")}
-              onChange={() => {
+              className="w-7 h-7 accent-dark-green cursor-pointer"
+              {...register("numPeople", {
+                required: "Select one of the options above",
+              })}
+              onClick={() => {
                 setRadioNum(2);
                 setEstimatedRange([]);
               }}
             />
-            <label htmlFor="2" className="ms-2 text-base">
+            <label htmlFor="2" className="px-5 text-base cursor-pointer">
               2
             </label>
           </div>
         </fieldset>
+        <span className="text-red-600">
+          {errors.numPeople && errors.numPeople.message}
+        </span>
 
-        <label className="font-semibold">
+        <label className="font-semibold block py-4">
           {radioNum === 1 ? "Your annual income" : "Person 1 - Annual income:"}
         </label>
         <div className="flex">
@@ -79,11 +87,21 @@ export const AffordabilityCalc = () => {
             type="number"
             className="text-sm p-2 rounded-e-md border border-dark-green w-64"
             defaultValue={0}
-            {...register("income1", { required: true })}
+            {...register("income1", {
+              required: "This is a required field",
+              validate: {
+                validNumber: (value) => !isNaN(value) || "Enter only numbers",
+                largerThanZero: (value) =>
+                  value > 0 || "Enter a value bigger than 0",
+              },
+            })}
           />
         </div>
+        <span className="text-red-600">
+          {errors.income1 && errors.income1.message}
+        </span>
 
-        <label className="font-semibold">
+        <label className="font-semibold block py-4">
           {radioNum === 1
             ? "Your monthly outgoings income"
             : "Person 1 - Monthly outgoings:"}
@@ -96,13 +114,25 @@ export const AffordabilityCalc = () => {
             type="number"
             className="text-sm p-2 rounded-e-md border border-dark-green w-64"
             defaultValue={0}
-            {...register("totalOutgoings1", { required: true })}
+            {...register("totalOutgoings1", {
+              required: "This is a required field",
+              validate: {
+                validNumber: (value) => !isNaN(value) || "Enter only numbers",
+                largerThanZero: (value) =>
+                  value > 0 || "Enter a value bigger than 0",
+              },
+            })}
           />
         </div>
+        <span className="text-red-600">
+          {errors.totalOutgoings1 && errors.totalOutgoings1.message}
+        </span>
 
         {radioNum === 2 && (
           <>
-            <label className="font-semibold">Person 2 - Annual income:</label>
+            <label className="font-semibold block py-4">
+              Person 2 - Annual income:
+            </label>
             <div className="flex">
               <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
                 £
@@ -111,11 +141,22 @@ export const AffordabilityCalc = () => {
                 type="number"
                 className="text-sm p-2 rounded-e-md border border-dark-green w-64"
                 defaultValue={0}
-                {...register("income2", { required: true })}
+                {...register("income2", {
+                  required: "This is a required field",
+                  validate: {
+                    validNumber: (value) =>
+                      !isNaN(value) || "Enter only numbers",
+                    largerThanZero: (value) =>
+                      value > 0 || "Enter a value bigger than 0",
+                  },
+                })}
               />
             </div>
+            <span className="text-red-600">
+              {errors.income2 && errors.income2.message}
+            </span>
 
-            <label className="font-semibold">
+            <label className="font-semibold block py-4">
               Person 2 - Monthly outgoings:
             </label>
             <div className="flex">
@@ -126,15 +167,26 @@ export const AffordabilityCalc = () => {
                 type="number"
                 className="text-sm p-2 rounded-e-md border border-dark-green w-64"
                 defaultValue={0}
-                {...register("totalOutgoings2", { required: true })}
+                {...register("totalOutgoings2", {
+                  required: "This is a required field",
+                  validate: {
+                    validNumber: (value) =>
+                      !isNaN(value) || "Enter only numbers",
+                    largerThanZero: (value) =>
+                      value > 0 || "Enter a value bigger than 0",
+                  },
+                })}
               />
             </div>
+            <span className="text-red-600">
+              {errors.totalOutgoings2 && errors.totalOutgoings2.message}
+            </span>
           </>
         )}
 
         <button
           type="submit"
-          className="p-2 w-48 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green mt-4 sm:w-60"
+          className="p-2 w-48 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green sm:w-60 block mt-10"
         >
           Calculate
         </button>
