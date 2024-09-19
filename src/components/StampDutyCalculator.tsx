@@ -50,7 +50,7 @@ export const StampDutyCalculator = () => {
           </span>
           <input
             type="number"
-            className="text-sm p-2 rounded-e-md border border-dark-green"
+            className="text-sm p-2 rounded-e-md border border-dark-green w-64"
             defaultValue={0}
             {...register("propertyPrice", { required: true })}
           />
