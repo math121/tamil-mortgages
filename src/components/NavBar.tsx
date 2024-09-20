@@ -12,7 +12,7 @@ export const NavBar = () => {
         <div className="flex flex-wrap items-center justify-between p-2 pr-4">
           <Link to="/">
             <img
-              className="h-12 lg:h-20"
+              className="h-14 lg:h-20"
               src="/src/assets/logo.png"
               alt="All Credit Mortgages Logo"
             />

@@ -30,6 +30,13 @@ export const Sidebar = ({
             X
           </p>
           <Link
+            to="/"
+            className="text-white no-underline hover:underline hover:font-bold"
+            onClick={() => setShowSidebar(false)}
+          >
+            Home
+          </Link>
+          <Link
             to="/services"
             className="text-white no-underline hover:underline hover:font-bold"
             onClick={() => setShowSidebar(false)}

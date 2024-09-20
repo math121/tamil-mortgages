@@ -21,7 +21,16 @@ export const AffordabilityCalc = () => {
   } = useForm<AffordabilityInputs>();
 
   const calculateAffordability: SubmitHandler<AffordabilityInputs> = (data) => {
-    const range = affordabilityFormula(data);
+    console.log(data);
+    const sendData: AffordabilityInputs = {
+      numPeople: data.numPeople,
+      income1: data.income1,
+      totalOutgoings1: data.totalOutgoings1,
+      income2: data.income2 !== undefined ? data.income2 : 0,
+      totalOutgoings2:
+        data.totalOutgoings2 !== undefined ? data.totalOutgoings2 : 0,
+    };
+    const range = affordabilityFormula(sendData);
     setEstimatedRange(range);
   };
 
@@ -77,7 +86,7 @@ export const AffordabilityCalc = () => {
         </span>
 
         <label className="font-semibold block py-4">
-          {radioNum === 1 ? "Your annual income" : "Person 1 - Annual income:"}
+          {radioNum === 1 ? "Your Annual Income" : "Person 1 - Annual Income:"}
         </label>
         <div className="flex">
           <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
@@ -101,11 +110,14 @@ export const AffordabilityCalc = () => {
           {errors.income1 && errors.income1.message}
         </span>
 
-        <label className="font-semibold block py-4">
+        <label className="font-semibold block pt-4">
           {radioNum === 1
-            ? "Your monthly outgoings income"
-            : "Person 1 - Monthly outgoings:"}
+            ? "Your Monthly Outgoings"
+            : "Person 1 - Monthly Outgoings:"}
         </label>
+        <p className="italic my-0">
+          {"(including credit cards, loans, bills)"}
+        </p>
         <div className="flex">
           <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
             £
@@ -131,7 +143,7 @@ export const AffordabilityCalc = () => {
         {radioNum === 2 && (
           <>
             <label className="font-semibold block py-4">
-              Person 2 - Annual income:
+              Person 2 - Annual Income:
             </label>
             <div className="flex">
               <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
@@ -156,9 +168,12 @@ export const AffordabilityCalc = () => {
               {errors.income2 && errors.income2.message}
             </span>
 
-            <label className="font-semibold block py-4">
-              Person 2 - Monthly outgoings:
+            <label className="font-semibold block pt-4">
+              Person 2 - Monthly Outgoings:
             </label>
+            <p className="italic my-0">
+              {"(including credit cards, loans, bills)"}
+            </p>
             <div className="flex">
               <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
                 £
@@ -205,15 +220,15 @@ export const AffordabilityCalc = () => {
                   estimatedRange[1] / 1000 +
                   "k"}
               </p>
-              <p>Lenders usually lend between 4-5 times your salary</p>
               <p>
-                Hor much you can borrow can be affected by various factors like
+                How much you can borrow can be affected by various factors like
                 these:
               </p>
               <ul>
+                <li>Deposit</li>
                 <li>Credit rating</li>
                 <li>Loans / Credit balances</li>
-                <li>Children / dependents</li>
+                <li>Dependents</li>
                 <li>Age</li>
                 <li>Mortgage term</li>
                 <li>Employment status</li>
