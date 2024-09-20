@@ -6,8 +6,11 @@ type StampDutyCalculations = {
 const rate0 = 0 / 100;
 const rate3 = 3 / 100;
 const rate5 = 5 / 100;
+const rate8 = 8 / 100;
 const rate10 = 10 / 100;
 const rate12 = 12 / 100;
+const rate13 = 13 / 100;
+const rate15 = 15 / 100;
 
 export const stampDutyFirstTimeBuyer = (
   propertyPrice: number
@@ -15,50 +18,128 @@ export const stampDutyFirstTimeBuyer = (
   /*
   0% on the first £425,000
   5% on the portion from £425,001 to £625,000
-  10% on the portion from £625,001 to £925,000
-  12% on the portion above £925,000
   */
 
   const amountRate0 = 425000;
   const amountRate5 = [425001, 625000];
-  const amountRate10 = [625001, 925000];
-  //const amountRate12 = 925001;
 
   if (propertyPrice <= amountRate0) {
     return { stampDuty: rate0 * propertyPrice, rate: rate0 };
   }
   if (propertyPrice >= amountRate5[0] && propertyPrice <= amountRate5[1]) {
-    return { stampDuty: rate5 * propertyPrice, rate: rate5 };
+    const stampDutyForProperty = rate5 * (propertyPrice - amountRate0);
+    const taxRate = ((stampDutyForProperty / propertyPrice) * 100).toFixed(2);
+    return {
+      stampDuty: Math.round(stampDutyForProperty),
+      rate: parseFloat(taxRate),
+    };
   }
-  if (propertyPrice >= amountRate10[0] && propertyPrice <= amountRate10[1]) {
-    return { stampDuty: rate10 * propertyPrice, rate: rate10 };
-  }
-  return { stampDuty: rate12 * propertyPrice, rate: rate12 };
+  return stampDutyFirstTimeBuyerOver625001(propertyPrice);
 };
 
-export const stampDutySecondTimeBuyer = (propertyPrice: number) => {
+const stampDutyFirstTimeBuyerOver625001 = (
+  propertyPrice: number
+): StampDutyCalculations => {
   /*
-  3% on the first £125,000
-  5% on the portion from £125,001 to £250,000
-  10% on the portion from £250,001 to £925,000
-  12% on the portion above £925,000
+  0% on the first £250,000
+  5% on the portion from £250,001 to £925,000
+  10% on the portion from £925,001 to £1,500,000
+  12% on the anything ahove £1,500,001
   */
 
-  const amountRate0 = 125000;
-  const amountRate5 = [125001, 250000];
-  const amountRate10 = [250001, 925000];
-  //const amountRate12 = 925001;
+  const amountRate0 = 250000;
+  const amountRate5 = [250001, 925000];
+  const amountRate10 = [925001, 1500000];
 
-  if (propertyPrice <= amountRate0) {
-    return { stampDuty: rate3 * propertyPrice, rate: rate3 };
-  }
+  const stampDuty5Percent = (amountRate5[1] - amountRate0) * rate5;
+  const stampDuty10Percent = (amountRate10[1] - amountRate5[1]) * rate10;
+
+  // for 5%
   if (propertyPrice >= amountRate5[0] && propertyPrice <= amountRate5[1]) {
-    return { stampDuty: rate5 * propertyPrice, rate: rate5 };
+    const stampDutyForProperty = rate5 * (propertyPrice - amountRate0);
+    const taxRate = ((stampDutyForProperty / propertyPrice) * 100).toFixed(2);
+
+    return {
+      stampDuty: Math.round(stampDutyForProperty),
+      rate: parseFloat(taxRate),
+    };
   }
+
+  // for 10%
   if (propertyPrice >= amountRate10[0] && propertyPrice <= amountRate10[1]) {
-    return { stampDuty: rate10 * propertyPrice, rate: rate10 };
+    const stampDutyForProperty = rate10 * (propertyPrice - amountRate5[1]);
+    const totalStampDuty = stampDuty5Percent + stampDutyForProperty;
+    const taxRate = ((totalStampDuty / propertyPrice) * 100).toFixed(2);
+    return { stampDuty: Math.round(totalStampDuty), rate: parseFloat(taxRate) };
   }
-  return { stampDuty: rate12 * propertyPrice, rate: rate12 };
+
+  // for 12%
+  const stampDutyForProperty = rate12 * (propertyPrice - amountRate10[1]);
+  const totalStampDuty =
+    stampDuty5Percent + stampDuty10Percent + stampDutyForProperty;
+  const taxRate = ((totalStampDuty / propertyPrice) * 100).toFixed(2);
+  return { stampDuty: Math.round(totalStampDuty), rate: parseFloat(taxRate) };
+};
+
+export const stampDutySecondTimeBuyer = (
+  propertyPrice: number
+): StampDutyCalculations => {
+  /*
+  3% on the first £250,000
+  8% on the portion from £250,001 to £925,000
+  13% on the portion from £925,001 to £1,500,000
+  15% on the portion above £1,500,000
+  */
+
+  const amountRate3 = 250000;
+  const amountRate8 = [250001, 925000];
+  const amountRate13 = [925001, 1500000];
+
+  const stampDuty3Percent = rate3 * amountRate3;
+  const stampDuty8Percent = rate8 * (amountRate8[1] - amountRate3);
+  const stampDuty13Percent = rate13 * (amountRate13[1] - amountRate8[1]);
+
+  // for 3%
+  if (propertyPrice <= amountRate3) {
+    const stampDutyForProperty = rate3 * propertyPrice;
+    const taxRate = ((stampDutyForProperty / propertyPrice) * 100).toFixed(2);
+    return {
+      stampDuty: Math.round(rate3 * propertyPrice),
+      rate: parseFloat(taxRate),
+    };
+  }
+
+  // for 8%
+  if (propertyPrice >= amountRate8[0] && propertyPrice <= amountRate8[1]) {
+    const stampDutyForProperty = rate8 * (propertyPrice - amountRate3);
+    const totalStampDuty = stampDuty3Percent + stampDutyForProperty;
+    const taxRate = ((totalStampDuty / propertyPrice) * 100).toFixed(2);
+
+    return {
+      stampDuty: Math.round(totalStampDuty),
+      rate: parseFloat(taxRate),
+    };
+  }
+
+  // for 13%
+  if (propertyPrice >= amountRate13[0] && propertyPrice <= amountRate13[1]) {
+    const stampDutyForProperty = (propertyPrice - amountRate8[1]) * rate13;
+    const totalStampDuty =
+      stampDutyForProperty + stampDuty8Percent + stampDuty3Percent;
+    const taxRate = ((totalStampDuty / propertyPrice) * 100).toFixed(2);
+
+    return { stampDuty: Math.round(totalStampDuty), rate: parseFloat(taxRate) };
+  }
+
+  // for 15%
+  const stampDutyForProperty = rate15 * (propertyPrice - amountRate13[1]);
+  const totalStampDuty =
+    stampDuty3Percent +
+    stampDuty8Percent +
+    stampDuty13Percent +
+    stampDutyForProperty;
+  const taxRate = ((totalStampDuty / propertyPrice) * 100).toFixed(2);
+  return { stampDuty: Math.round(totalStampDuty), rate: parseFloat(taxRate) };
 };
 
 type AffordabilityInputs = {

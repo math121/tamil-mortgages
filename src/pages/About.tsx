@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <div className="p-2">
+    <div className="p-2 md:mx-24 lg:mx-60">
       <h1>About Us</h1>
       <p>
         At <b>All Credit Mortgages</b>, we pride ourselves on making the

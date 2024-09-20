@@ -11,8 +11,8 @@ export const MainPage = () => {
         alt="Picture with UK houses"
       />
       <div className="lg:pt-10">
-        <h1 className="font-forum text-5xl my-4 ml-2 font-thin lg:text-7xl">
-          Mortgages made simple
+        <h1 className="font-forum italic text-5xl my-4 ml-2 lg:text-6xl">
+          Mortgages Made Simple
         </h1>
         <div className="flex items-center gap-2 ml-2 lg:pr-4">
           <img

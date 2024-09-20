@@ -21,16 +21,15 @@ export const StampDutyCalculator = () => {
   } = useForm<StampDutyInputs>();
 
   const calculateStampDuty: SubmitHandler<StampDutyInputs> = (data) => {
-    console.log("it is getting submitted");
     if (data.typeBuyer === "First time buyer") {
       const stampDuty = stampDutyFirstTimeBuyer(data.propertyPrice);
-      setResult("£" + stampDuty.stampDuty);
-      setRate(stampDuty.rate * 100 + "%");
+      setResult("£ " + new Intl.NumberFormat().format(stampDuty.stampDuty));
+      setRate(stampDuty.rate + "%");
     }
     if (data.typeBuyer === "Second time buyer/additional properties") {
       const stampDuty = stampDutySecondTimeBuyer(data.propertyPrice);
-      setResult("£" + stampDuty.stampDuty);
-      setRate(stampDuty.rate * 100 + "%");
+      setResult("£ " + new Intl.NumberFormat().format(stampDuty.stampDuty));
+      setRate(stampDuty.rate + "%");
     }
   };
 
@@ -113,9 +112,11 @@ export const StampDutyCalculator = () => {
       {result && rate && (
         <div>
           <section className="border-2 border-solid border-dark-green rounded-xl px-2 mt-10">
-            <p>Stamp duty on your first property/additional property is</p>
-            <p className="font-bold text-2xl my-0">{result}</p>
-            <p>Rate: {rate}</p>
+            <div className="pl-3">
+              <p>Stamp duty on your first property/additional property is</p>
+              <p className="font-bold text-2xl my-0">{result}</p>
+              <p>Tax rate: {rate}</p>
+            </div>
           </section>
         </div>
       )}

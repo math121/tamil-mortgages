@@ -209,15 +209,15 @@ export const AffordabilityCalc = () => {
 
       {estimatedRange.length !== 0 && (
         <div>
-          <section className="border-2 border-solid border-dark-green rounded-xl px-2 mt-10">
-            <div className="gap-3 items-center">
+          <section className="border-2 border-solid border-dark-green rounded-xl mt-10">
+            <div className="gap-3 items-center pl-5">
               <p>Estimated amount you can borrow:</p>
               <p className="font-bold text-2xl my-0">
                 {"£" +
-                  estimatedRange[0] / 1000 +
+                  Math.round(estimatedRange[0] / 1000) +
                   "k - " +
                   "£" +
-                  estimatedRange[1] / 1000 +
+                  Math.round(estimatedRange[1] / 1000) +
                   "k"}
               </p>
               <p>
