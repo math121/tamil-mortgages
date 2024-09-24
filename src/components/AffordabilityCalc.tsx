@@ -4,7 +4,7 @@ import { affordabilityFormula } from "../utils/formulas";
 import { InputNumberFormat } from "@react-input/number-format";
 
 type AffordabilityInputs = {
-  numPeople: number;
+  numPeople: string;
   income1: string;
   income2: string;
   totalOutgoings1: string;
@@ -18,13 +18,17 @@ export const AffordabilityCalc = () => {
   const {
     register,
     handleSubmit,
+    resetField,
     formState: { errors },
-  } = useForm<AffordabilityInputs>();
+  } = useForm<AffordabilityInputs>({
+    defaultValues: {
+      numPeople: "1",
+    },
+  });
 
   const calculateAffordability: SubmitHandler<AffordabilityInputs> = (data) => {
-    console.log(data);
     const sendData = {
-      numPeople: data.numPeople,
+      numPeople: Number(data.numPeople),
       income1: Number(data.income1.replace(/,/g, "")),
       totalOutgoings1: Number(data.totalOutgoings1.replace(/,/g, "")),
       income2:
@@ -36,6 +40,16 @@ export const AffordabilityCalc = () => {
     };
     const range = affordabilityFormula(sendData);
     setEstimatedRange(range);
+  };
+
+  const resetFormOnRadioInputChange = (num: number) => {
+    console.log("on change");
+    setRadioNum(num);
+    setEstimatedRange([]);
+    resetField("income1");
+    resetField("income2");
+    resetField("totalOutgoings1");
+    resetField("totalOutgoings2");
   };
 
   return (
@@ -56,10 +70,7 @@ export const AffordabilityCalc = () => {
               {...register("numPeople", {
                 required: "Select one of the options above",
               })}
-              onClick={() => {
-                setRadioNum(1);
-                setEstimatedRange([]);
-              }}
+              onChange={() => resetFormOnRadioInputChange(1)}
             />
             <label htmlFor="1" className="px-5 text-base cursor-pointer">
               1
@@ -75,10 +86,7 @@ export const AffordabilityCalc = () => {
               {...register("numPeople", {
                 required: "Select one of the options above",
               })}
-              onClick={() => {
-                setRadioNum(2);
-                setEstimatedRange([]);
-              }}
+              onChange={() => resetFormOnRadioInputChange(2)}
             />
             <label htmlFor="2" className="px-5 text-base cursor-pointer">
               2
