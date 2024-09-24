@@ -18,6 +18,7 @@ export default {
       fontFamily: {
         forum: ['"Forum"', ...defaultTheme.fontFamily.sans],
         nunito: ['"Nunito"', ...defaultTheme.fontFamily.sans],
+        belleza: ['"Belleza"', ...defaultTheme.fontFamily.sans],
       },
     },
   },

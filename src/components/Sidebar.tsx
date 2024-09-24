@@ -18,13 +18,13 @@ export const Sidebar = ({
     >
       <div
         className={
-          "right-0 w-56 absolute bg-dark-green h-full shadow-xl delay-400 duration-700 ease-in-out transition-all transform  text-white lg:w-2/6" +
+          "right-0 w-56 absolute bg-dark-green h-full shadow-xl delay-400 duration-700 ease-in-out transition-all transform  text-white lg:w-80" +
           (showSidebar ? " translate-x-0 " : " translate-x-full ")
         }
       >
         <nav className="relative pl-8 flex flex-col gap-6 h-full lg:text-xl lg:pl-14">
           <p
-            className="p-4 font-bold text-lg cursor-pointer mb-0 pl-0"
+            className="p-4 font-bold text-xl cursor-pointer mb-0 pl-0 w-fit"
             onClick={() => setShowSidebar(false)}
           >
             X
