@@ -168,8 +168,12 @@ export const affordabilityFormula = (data: AffordabilityInputs): number[] => {
   const rangePlusMinusPercent = 0.1;
   const incomeMultiplier = 4.5;
 
-  const totalOutgoings =
-    Number(data.totalOutgoings1) * 12 + Number(data.totalOutgoings2) * 12;
+  let totalOutgoings = Number(data.totalOutgoings1) * 12;
+
+  if (data.numPeople === 2) {
+    totalOutgoings += Number(data.totalOutgoings2) * 12;
+  }
+
   const totalIncome = Number(data.income1) + Number(data.income2);
 
   const remainingAmount = totalIncome - totalOutgoings;

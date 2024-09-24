@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { affordabilityFormula } from "../utils/formulas";
+import { InputNumberFormat } from "@react-input/number-format";
 
 type AffordabilityInputs = {
   numPeople: number;
-  income1: number;
-  income2: number;
-  totalOutgoings1: number;
-  totalOutgoings2: number;
+  income1: string;
+  income2: string;
+  totalOutgoings1: string;
+  totalOutgoings2: string;
 };
 
 export const AffordabilityCalc = () => {
@@ -22,13 +23,16 @@ export const AffordabilityCalc = () => {
 
   const calculateAffordability: SubmitHandler<AffordabilityInputs> = (data) => {
     console.log(data);
-    const sendData: AffordabilityInputs = {
+    const sendData = {
       numPeople: data.numPeople,
-      income1: data.income1,
-      totalOutgoings1: data.totalOutgoings1,
-      income2: data.income2 !== undefined ? data.income2 : 0,
+      income1: Number(data.income1.replace(/,/g, "")),
+      totalOutgoings1: Number(data.totalOutgoings1.replace(/,/g, "")),
+      income2:
+        data.income2 !== undefined ? Number(data.income2.replace(/,/g, "")) : 0,
       totalOutgoings2:
-        data.totalOutgoings2 !== undefined ? data.totalOutgoings2 : 0,
+        data.income2 !== undefined
+          ? Number(data.totalOutgoings2.replace(/,/g, ""))
+          : 0,
     };
     const range = affordabilityFormula(sendData);
     setEstimatedRange(range);
@@ -92,17 +96,14 @@ export const AffordabilityCalc = () => {
           <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
             £
           </span>
-          <input
-            type="number"
+          <InputNumberFormat
             className="text-sm p-2 rounded-e-md border border-dark-green w-64"
-            defaultValue={0}
+            maximumFractionDigits={0}
             {...register("income1", {
               required: "This is a required field",
-              validate: {
-                validNumber: (value) => !isNaN(value) || "Enter only numbers",
-                largerThanZero: (value) =>
-                  value > 0 || "Enter a value bigger than 0",
-              },
+              validate: (value) =>
+                Number(value.replace(/,/g, "")) > 0 ||
+                "Enter a value bigger than 0",
             })}
           />
         </div>
@@ -122,17 +123,14 @@ export const AffordabilityCalc = () => {
           <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
             £
           </span>
-          <input
-            type="number"
+          <InputNumberFormat
             className="text-sm p-2 rounded-e-md border border-dark-green w-64"
-            defaultValue={0}
+            maximumFractionDigits={0}
             {...register("totalOutgoings1", {
               required: "This is a required field",
-              validate: {
-                validNumber: (value) => !isNaN(value) || "Enter only numbers",
-                largerThanZero: (value) =>
-                  value > 0 || "Enter a value bigger than 0",
-              },
+              validate: (value) =>
+                Number(value.replace(/,/g, "")) > 0 ||
+                "Enter a value bigger than 0",
             })}
           />
         </div>
@@ -149,18 +147,14 @@ export const AffordabilityCalc = () => {
               <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
                 £
               </span>
-              <input
-                type="number"
+              <InputNumberFormat
                 className="text-sm p-2 rounded-e-md border border-dark-green w-64"
-                defaultValue={0}
+                maximumFractionDigits={0}
                 {...register("income2", {
                   required: "This is a required field",
-                  validate: {
-                    validNumber: (value) =>
-                      !isNaN(value) || "Enter only numbers",
-                    largerThanZero: (value) =>
-                      value > 0 || "Enter a value bigger than 0",
-                  },
+                  validate: (value) =>
+                    Number(value.replace(/,/g, "")) > 0 ||
+                    "Enter a value bigger than 0",
                 })}
               />
             </div>
@@ -178,18 +172,14 @@ export const AffordabilityCalc = () => {
               <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
                 £
               </span>
-              <input
-                type="number"
+              <InputNumberFormat
                 className="text-sm p-2 rounded-e-md border border-dark-green w-64"
-                defaultValue={0}
+                maximumFractionDigits={0}
                 {...register("totalOutgoings2", {
                   required: "This is a required field",
-                  validate: {
-                    validNumber: (value) =>
-                      !isNaN(value) || "Enter only numbers",
-                    largerThanZero: (value) =>
-                      value > 0 || "Enter a value bigger than 0",
-                  },
+                  validate: (value) =>
+                    Number(value.replace(/,/g, "")) > 0 ||
+                    "Enter a value bigger than 0",
                 })}
               />
             </div>
