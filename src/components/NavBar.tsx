@@ -2,12 +2,14 @@ import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
 import { Footer } from "./Footer";
+import { ScrollRestoration } from "@tanstack/react-router";
 
 export const NavBar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
     <>
+      <ScrollRestoration />
       <nav className="bg-dark-green rounded-lg">
         <div className="flex flex-wrap items-center justify-between p-2 pr-4">
           <Link to="/">
