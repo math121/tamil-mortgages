@@ -43,7 +43,6 @@ export const AffordabilityCalc = () => {
   };
 
   const resetFormOnRadioInputChange = (num: number) => {
-    console.log("on change");
     setRadioNum(num);
     setEstimatedRange([]);
     resetField("income1");
@@ -106,6 +105,7 @@ export const AffordabilityCalc = () => {
           </span>
           <InputNumberFormat
             className="text-sm p-2 rounded-e-md border border-dark-green w-64"
+            autoComplete="off"
             maximumFractionDigits={0}
             {...register("income1", {
               required: "This is a required field",
@@ -133,6 +133,7 @@ export const AffordabilityCalc = () => {
           </span>
           <InputNumberFormat
             className="text-sm p-2 rounded-e-md border border-dark-green w-64"
+            autoComplete="off"
             maximumFractionDigits={0}
             {...register("totalOutgoings1", {
               required: "This is a required field",
@@ -157,6 +158,7 @@ export const AffordabilityCalc = () => {
               </span>
               <InputNumberFormat
                 className="text-sm p-2 rounded-e-md border border-dark-green w-64"
+                autoComplete="off"
                 maximumFractionDigits={0}
                 {...register("income2", {
                   required: "This is a required field",
@@ -182,6 +184,7 @@ export const AffordabilityCalc = () => {
               </span>
               <InputNumberFormat
                 className="text-sm p-2 rounded-e-md border border-dark-green w-64"
+                autoComplete="off"
                 maximumFractionDigits={0}
                 {...register("totalOutgoings2", {
                   required: "This is a required field",
