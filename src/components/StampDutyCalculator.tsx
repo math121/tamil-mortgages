@@ -4,9 +4,10 @@ import {
   stampDutyFirstTimeBuyer,
   stampDutySecondTimeBuyer,
 } from "../utils/formulas";
+import { InputNumberFormat } from "@react-input/number-format";
 
 type StampDutyInputs = {
-  propertyPrice: number;
+  propertyPrice: string;
   typeBuyer: string;
 };
 
@@ -21,13 +22,14 @@ export const StampDutyCalculator = () => {
   } = useForm<StampDutyInputs>();
 
   const calculateStampDuty: SubmitHandler<StampDutyInputs> = (data) => {
+    const price = Number(data.propertyPrice.replace(/,/g, ""));
     if (data.typeBuyer === "First time buyer") {
-      const stampDuty = stampDutyFirstTimeBuyer(data.propertyPrice);
+      const stampDuty = stampDutyFirstTimeBuyer(price);
       setResult("£ " + new Intl.NumberFormat().format(stampDuty.stampDuty));
       setRate(stampDuty.rate + "%");
     }
     if (data.typeBuyer === "Second time buyer/additional properties") {
-      const stampDuty = stampDutySecondTimeBuyer(data.propertyPrice);
+      const stampDuty = stampDutySecondTimeBuyer(price);
       setResult("£ " + new Intl.NumberFormat().format(stampDuty.stampDuty));
       setRate(stampDuty.rate + "%");
     }
@@ -35,7 +37,11 @@ export const StampDutyCalculator = () => {
 
   return (
     <div className="p-2 md:flex md:gap-10">
-      <form onSubmit={handleSubmit(calculateStampDuty)} className="md:w-3/6">
+      <form
+        onSubmit={handleSubmit(calculateStampDuty)}
+        className="md:w-6/12"
+        autoComplete="off"
+      >
         <p>
           Specify the property price in pounds and tick the box if you are a
           first time buyer or a second time buyer/ buying additional properties
@@ -45,17 +51,14 @@ export const StampDutyCalculator = () => {
           <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
             £
           </span>
-          <input
-            type="number"
+          <InputNumberFormat
             className="text-sm p-2 rounded-e-md border border-dark-green w-64"
-            defaultValue={0}
+            maximumFractionDigits={0}
             {...register("propertyPrice", {
               required: "This is a required field",
-              validate: {
-                validNumber: (value) => !isNaN(value) || "Enter only numbers",
-                largerThanZero: (value) =>
-                  value > 0 || "Enter a value bigger than 0",
-              },
+              validate: (value) =>
+                Number(value.replace(/,/g, "")) > 0 ||
+                "Enter a value bigger than 0",
             })}
           />
         </div>
@@ -97,7 +100,7 @@ export const StampDutyCalculator = () => {
             </label>
           </div>
         </fieldset>
-        <span className="text-red-600">
+        <span className="text-red-600 block">
           {errors.typeBuyer && errors.typeBuyer.message}
         </span>
 
