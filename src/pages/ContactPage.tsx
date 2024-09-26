@@ -22,7 +22,7 @@ export const ContactPage = () => {
           <p className="my-0">07799752777</p>
           <img
             className="w-96 pt-9 hidden lg:block"
-            src="/src/assets/contact-us-image.jpg"
+            src="/src/assets/contact-us-image.png"
             alt="Picture with UK houses"
           />
         </div>
@@ -31,7 +31,7 @@ export const ContactPage = () => {
       </div>
       <img
         className="object-cover h-56 w-full pt-9 lg:hidden"
-        src="/src/assets/contact-us-image.jpg"
+        src="/src/assets/contact-us-image.png"
         alt="Picture with UK houses"
       />
     </>
