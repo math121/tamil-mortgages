@@ -26,7 +26,7 @@ export const Footer = () => {
         </nav>
 
         <p className="bg-dark-green p-4 m-0 text-start">
-          © 2024 All Credit Mortgages
+          © 2024 Tamilian Mortgage
         </p>
       </footer>
     </>
