@@ -11,17 +11,19 @@ export const MainPage = () => {
         alt="Picture with UK houses"
       />
       <div className="md:pt-10">
-        <h1 className="font-forum italic text-5xl my-4 ml-2 lg:text-6xl">
-          Mortgages Made Simple
-        </h1>
+        <p className="font-forum italic font-bold text-lg my-4 ml-2 lg:text-4xl">
+          உங்கள் அடமான பங்குதாரர்- கடன் அல்லது வருமானம் எதுவும் செய்ய கடினமாக
+          உள்ளதா?
+        </p>
         <div className="flex items-center gap-2 ml-2 md:pr-4">
           <img
             className="h-8"
             src="/src/assets/frontpage-tick.png"
             alt="green tick icon"
           />
-          <p className="my-4 font-semibold md:text-lg lg:text-xl">
-            Your Mortgage Partner—No Credit or Income Too Complex!
+          <p className="my-4 font-semibold text-sm md:text-lg lg:text-xl">
+            எங்களுடைய திறமை யாராய் இருந்தாலும் வீடு வாங்குவதற்கு இலகுவான
+            முறையில் எல்லா விதமான உதவிகளும் சேய்து தரப்படும்
           </p>
         </div>
 
@@ -31,21 +33,9 @@ export const MainPage = () => {
             src="/src/assets/frontpage-tick.png"
             alt="green tick icon"
           />
-          <p className="my-2 font-semibold md:text-lg lg:text-xl">
-            Tailored Mortgage Solutions for First-Time, Joint Buyers, Buy To Let
-            & More!
-          </p>
-        </div>
-
-        <div className="flex items-center gap-2 ml-2 md:pr-4">
-          <img
-            className="h-8"
-            src="/src/assets/frontpage-tick.png"
-            alt="green tick icon"
-          />
-          <p className="my-2 font-semibold md:text-lg lg:text-xl">
-            Backed by 20+ years of expertise, we deliver success with proven
-            results!
+          <p className="my-2 font-semibold text-sm md:text-lg lg:text-xl">
+            நம்பி அழைப்பில் முன்பதிவு செய்து கொள்ளுங்கள் உங்களின் அனைத்து
+            தேவைகளை புர்த்தி சேய்யும் ஒரே இடம் T.M
           </p>
         </div>
 
