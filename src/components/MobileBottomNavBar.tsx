@@ -4,7 +4,7 @@ export const MobileBottomNavBar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="fixed flex flex-nowrap bottom-0 left-0 bg-dark-green w-full sm:hidden">
+      <div className="fixed flex flex-nowrap z-10 bottom-0 left-0 bg-dark-green w-full sm:hidden">
         <button
           className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
           onClick={() => {
@@ -43,6 +43,28 @@ export const MobileBottomNavBar = () => {
         <button
           className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
           onClick={() => {
+            navigate({ to: "/services" });
+          }}
+        >
+          <svg
+            className="w-5 h-5 mb-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M9.586 2.586A2 2 0 0 1 11 2h2a2 2 0 0 1 2 2v.089l.473.196.063-.063a2.002 2.002 0 0 1 2.828 0l1.414 1.414a2 2 0 0 1 0 2.827l-.063.064.196.473H20a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.089l-.196.473.063.063a2.002 2.002 0 0 1 0 2.828l-1.414 1.414a2 2 0 0 1-2.828 0l-.063-.063-.473.196V20a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2v-.089l-.473-.196-.063.063a2.002 2.002 0 0 1-2.828 0l-1.414-1.414a2 2 0 0 1 0-2.827l.063-.064L4.089 15H4a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h.09l.195-.473-.063-.063a2 2 0 0 1 0-2.828l1.414-1.414a2 2 0 0 1 2.827 0l.064.063L9 4.089V4a2 2 0 0 1 .586-1.414ZM8 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+
+          <span>Services</span>
+        </button>
+        <button
+          className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
+          onClick={() => {
             navigate({ to: "/affordabilityCalculator" });
           }}
         >
@@ -55,24 +77,10 @@ export const MobileBottomNavBar = () => {
           >
             <path d="M4 4c0-.975.718-2 1.875-2h12.25C19.282 2 20 3.025 20 4v16c0 .975-.718 2-1.875 2H5.875C4.718 22 4 20.975 4 20V4Zm7 13a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Z" />
           </svg>
-          <span>A-Cal</span>
-        </button>
-        <button
-          className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
-          onClick={() => {
-            navigate({ to: "/stampDutyCalculator" });
-          }}
-        >
-          <svg
-            className="w-5 h-5 mb-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M4 4c0-.975.718-2 1.875-2h12.25C19.282 2 20 3.025 20 4v16c0 .975-.718 2-1.875 2H5.875C4.718 22 4 20.975 4 20V4Zm7 13a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Z" />
-          </svg>
-          <span>S-Cal</span>
+          <span>
+            Afford/ <br />
+            Stamp
+          </span>
         </button>
         <button
           className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
