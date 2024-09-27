@@ -8,28 +8,34 @@ export const NavBar = () => {
   return (
     <>
       <ScrollRestoration />
-      <nav className="bg-beige rounded-lg sm:px-3">
+      <nav className="bg-beige rounded-lg sm:px-3 flex items-center justify-between">
         <div className="flex items-center justify-between p-2 pr-4">
           <Link
             to="/"
             className="flex gap-3 items-center no-underline text-white"
           >
             <img
-              className="h-[50px] lg:h-16 py-1"
-              src="/src/assets/logo-symbol.png"
+              className="h-20 lg:h-32 py-1"
+              src="/src/assets/lotus-logo.png"
               alt="All Credit Mortgages Logo"
             />
-            <div>
-              <p className="font-belleza text-xl my-0 lg:text-2xl">
-                All Credit Mortgages
-              </p>
-              <p className="font-belleza text-[14px] my-0 lg:text-lg">
-                Breaking Barriers to Homeownership for All
-              </p>
-            </div>
           </Link>
+          <div className="text-center">
+            <p className="font-belleza font-bold text-xl my-0 lg:text-3xl">
+              TAMILIAN
+            </p>
+            <div className="inline-flex items-center justify-center">
+              <hr className="w-52 h-px bg-black" />
+              <span className="absolute px-3 text-black bg-beige font-belleza font-bold text-[14px] lg:text-lg">
+                MORTGAGES
+              </span>
+            </div>
+
+            <p className="font-belleza text-[14px] my-0 lg:text-base">
+              FOR ALL YOUR NEEDS
+            </p>
+          </div>
         </div>
-        <hr />
         <NavLinks />
       </nav>
 
