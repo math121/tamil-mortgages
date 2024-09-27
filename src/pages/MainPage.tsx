@@ -11,10 +11,21 @@ export const MainPage = () => {
         alt="Picture with UK houses"
       />
       <div className="md:pt-10">
-        <p className="font-forum italic font-bold text-lg my-4 ml-2 lg:text-4xl">
-          உங்கள் அடமான பங்குதாரர்- கடன் அல்லது வருமானம் எதுவும் செய்ய கடினமாக
-          உள்ளதா?
+        <p className="font-forum font-bold italic text-lg my-4 ml-2 lg:text-4xl">
+          எங்கள் மிது நம்பிக்கை வைத்து உங்கள் இலட்சியத்தை நிறைவேற்றுங்கள்.
         </p>
+        <div className="flex items-center gap-2 ml-2 md:pr-4">
+          <img
+            className="h-8"
+            src="/src/assets/frontpage-tick.png"
+            alt="green tick icon"
+          />
+          <p className="my-4 font-semibold text-sm md:text-lg lg:text-xl">
+            உங்கள் அடமான பங்குதாரர்- கடன் அல்லது வருமானம் எதுவும் செய்ய கடினமாக
+            உள்ளதா?
+          </p>
+        </div>
+
         <div className="flex items-center gap-2 ml-2 md:pr-4">
           <img
             className="h-8"
