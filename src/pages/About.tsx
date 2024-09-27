@@ -3,28 +3,29 @@ export const About = () => {
     <div className="p-2 md:mx-24 lg:mx-60">
       <h1>About Us</h1>
       <p>
-        At <b>All Credit Mortgages</b>, we pride ourselves on making the
-        mortgage process simple, accessible, and stress-free for everyone. With
-        over <b>20 years of combined experience</b> in the mortgage industry, we
-        specialize in securing mortgages for <b>all types of buyers</b>,
-        including those with <b>low credit scores</b> and
-        <b>varied income levels</b>. Whether you're a first-time buyer, looking
-        to invest in <b>buy-to-let properties</b>, or need to
-        <b>remortgage</b>, we have the expertise to guide you every step of the
-        way.
+        Tamilian Mortgages இல், அடமானச் செயல்முறையை எளிமையாகவும்,
+        அணுகக்கூடியதாகவும், அனைவருக்கும் மன அழுத்தமில்லாததாகவும் மாற்றுவதில்
+        பெருமை கொள்கிறோம். அடமானத் துறையில் 10 ஆண்டுகளுக்கும் மேலான ஒருங்கிணைந்த
+        அனுபவத்துடன், குறைந்த கடன் மதிப்பெண்கள் மற்றும் மாறுபட்ட வருமான நிலைகள்
+        உட்பட அனைத்து வகையான வாங்குபவர்களுக்கும் அடமானங்களைப் பாதுகாப்பதில்
+        நாங்கள் நிபுணத்துவம் பெற்றுள்ளோம். நீங்கள் முதன்முறையாக வாங்குபவராக
+        இருந்தாலும், வாங்குவதற்கு அனுமதிக்கும் சொத்துக்களில் முதலீடு செய்ய
+        விரும்பினாலும், அல்லது அடமானம் வைக்க விரும்பினாலும், ஒவ்வொரு அடியிலும்
+        உங்களுக்கு வழிகாட்டும் நிபுணத்துவம் எங்களிடம் உள்ளது வாழ்க்கையின்
+        சூழ்நிலைகள் உங்கள் நிதி சுயவிவரத்தை பாதிக்கலாம் என்பதை நாங்கள்
+        புரிந்துகொள்கிறோம், அதனால்தான் குறைந்த ஊதியம் மற்றும் மோசமான கடன்
+        மதிப்பீடுகள் உள்ள வாடிக்கையாளர்களுக்கு அடமான ஒப்பந்தங்களைப் பாதுகாக்க
+        உதவுவதில் நாங்கள் நற்பெயரைக் கட்டியெழுப்பியுள்ளோம்.
       </p>
       <p>
-        We understand that life's circumstances can affect your financial
-        profile, which is why we've built a reputation for helping clients with
-        <b>low wages</b> and <b>poor credit ratings</b> secure mortgage deals.
-        Our <b>high success rate</b> speaks to our commitment to finding the
-        right solution for each unique situation.
+        எங்கள் உயர் வெற்றி விகிதம் ஒவ்வொரு தனிப்பட்ட சூழ்நிலைக்கும் சரியான
+        தீர்வைக் கண்டறிவதற்கான எங்கள் உறுதிப்பாட்டைப் பற்றி பேசுகிறது.
       </p>
       <p>
-        From day one, we're with you — navigating through every hurdle, ensuring
-        you get the best deal, and making your dream of homeownership a reality.
-        At All Credit Mortgages, we believe everyone deserves a chance to own
-        their home, and we'll work tirelessly to make that happen for you!
+        முதல் நாள் முதல், நாங்கள் உங்களுடன் இருக்கிறோம் — ஒவ்வொரு தடையையும்
+        கடந்து, சிறந்த ஒப்பந்தத்தைப் பெறுவதை உறுதிசெய்து, உங்கள் வீட்டு
+        உரிமைக்கான கனவை நனவாக்குகிறோம். Tamilian Mortgages .இல், அனைவரும்
+        தகுதியானவர்கள் என்று நாங்கள் நம்புகிறோம்
       </p>
     </div>
   );
