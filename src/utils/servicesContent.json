@@ -1,42 +1,37 @@
 [
   {
     "id": 1,
-    "title": "First-Time Buyer Mortgages",
-    "text": "Helping first-time buyers secure the right deal, guiding them through government schemes like Help to Buy and Shared Ownership."
+    "title": "முதல் முறையாக வாங்குபவர் அடமானங்கள்",
+    "text": "முதல் முறையாக வாங்குபவர்களுக்கும் சரியான ஒப்பந்தத்தைப் பெற உதவுதல், வாங்குவதற்கு உதவுதல் மற்றும் பகிரப்பட்ட உரிமை போன்ற அரசாங்கத் திட்டங்களின் மூலம் அவர்களுக்கு வழிகாட்டுதல்."
   },
   {
     "id": 2,
-    "title": "Bad Credit Mortgages",
-    "text": "Specialising in securing mortgage deals for individuals with low or poor credit scores, helping them find options that other lenders may reject."
+    "title": "மோசமான கடன் அடமானங்கள்",
+    "text": "குறைந்த அல்லது மோசமான கிரெடிட் ஸ்கோரைக் கொண்ட தனிநபர்களுக்கான அடமான ஒப்பந்தங்களைப் பாதுகாப்பதில் நிபுணத்துவம் பெற்றது, மற்ற கடன் வழங்குபவர்கள் நிராகரிக்கக்கூடிய விருப்பங்களைக் கண்டறிய அவர்களுக்கு உதவுகிறது."
   },
   {
     "id": 3,
-    "title": "Buy-to-Let Mortgages",
-    "text": "Tailored for property investors looking to rent out properties, with flexible deposit and interest-only options."
+    "title": "அடமானங்களை வாங்கலாம்",
+    "text": "நெகிழ்வான வைப்பு மற்றும் வட்டி-மட்டும் விருப்பங்களுடன் சொத்துக்களை வாடகைக்கு விட விரும்பும் சொத்து முதலீட்டாளர்களுக்காக வடிவமைக்கப்பட்டுள்ளது."
   },
   {
     "id": 4,
-    "title": "Remortgages",
-    "text": "Assisting homeowners in switching their current mortgage deal to access better rates, lower monthly payments, or to release equity from their home."
+    "title": "அடமானங்கள்",
+    "text": "சிறந்த விகிதங்கள், குறைந்த மாதாந்திர கொடுப்பனவுகள் அல்லது அவர்களது வீட்டிலிருந்து ஈக்விட்டியை விடுவிக்க, வீட்டு உரிமையாளர்களுக்கு அவர்களின் தற்போதைய அடமான ஒப்பந்தத்தை மாற்றுவதற்கு உதவுதல்"
   },
   {
     "id": 5,
-    "title": "Low Wage Mortgages",
-    "text": "Flexible mortgage options for clients with lower income, helping them find deals that suit their financial situation and property goals."
+    "title": "குறைந்த ஊதிய அடமானங்கள்",
+    "text": "குறைந்த வருமானம் கொண்ட வாடிக்கையாளர்களுக்கான நெகிழ்வான அடமான விருப்பங்கள், அவர்களின் நிதி நிலைமை மற்றும் சொத்து இலக்குகளுக்கு ஏற்ற ஒப்பந்தங்களைக் கண்டறிய உதவுகிறது."
   },
   {
     "id": 6,
-    "title": "Commercial Mortgages",
-    "text": "Solutions for businesses or individuals looking to purchase or refinance commercial property, with access to tailored financing options."
+    "title": "வணிக அடமானங்கள்",
+    "text": "வணிகச் சொத்தை வாங்க அல்லது மறுநிதியளிப்பு செய்ய விரும்பும் வணிகங்கள் அல்லது தனிநபர்களுக்கான தீர்வுகள், வடிவமைக்கப்பட்ட நிதியளிப்பு விருப்பங்களுக்கான அணுகல்."
   },
   {
     "id": 7,
-    "title": "Equity Release",
-    "text": "Helping older homeowners unlock the equity in their home without needing to move, providing additional income for retirement."
-  },
-  {
-    "id": 8,
-    "title": "Commercial Business  Loans",
-    "text": "Helping you secure a loan for your desired amount."
+    "title": "ஈக்விட்டி வெளியீடு",
+    "text": "பழைய வீட்டு உரிமையாளர்கள் தங்கள் வீட்டில் உள்ள ஈக்விட்டியை நகர்த்தத் தேவையில்லாமல் திறக்க உதவுதல், ஓய்வூதியத்திற்கான கூடுதல் வருமானத்தை வழங்குதல்."
   }
 ]
