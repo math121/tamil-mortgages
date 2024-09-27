@@ -8,7 +8,7 @@ export const NavBar = () => {
   return (
     <>
       <ScrollRestoration />
-      <nav className="bg-dark-green rounded-lg sm:px-3">
+      <nav className="bg-beige rounded-lg sm:px-3">
         <div className="flex items-center justify-between p-2 pr-4">
           <Link
             to="/"

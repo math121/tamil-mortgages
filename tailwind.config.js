@@ -11,9 +11,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "dark-green": "#005031",
-        "light-green": "#25664e",
-        "lightest-green": "#d2e2db",
+        beige: "#d2bfa3",
       },
       fontFamily: {
         forum: ['"Forum"', ...defaultTheme.fontFamily.sans],

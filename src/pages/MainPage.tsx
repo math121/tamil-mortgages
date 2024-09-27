@@ -41,19 +41,19 @@ export const MainPage = () => {
 
         <div className="flex flex-col mx-16 mt-7 gap-4 md:w-fit md:ml-0 md:gap-7 md:mt-14">
           <button
-            className="p-2 rounded-full text-white bg-dark-green hover:bg-light-green cursor-pointer text-base md:px-24"
+            className="p-2 rounded-full bg-beige hover:bg-light-green cursor-pointer text-base md:px-24"
             onClick={() => navigate({ to: "/services" })}
           >
             Services
           </button>
           <button
-            className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green text-base"
+            className="p-2 rounded-full bg-beige cursor-pointer hover:bg-light-green text-base"
             onClick={() => navigate({ to: "/affordabilityCalculator" })}
           >
             Affordability calculator
           </button>
           <button
-            className="p-2 rounded-full text-white bg-dark-green cursor-pointer hover:bg-light-green text-base"
+            className="p-2 rounded-full bg-beige cursor-pointer hover:bg-light-green text-base"
             onClick={() => navigate({ to: "/stampDutyCalculator" })}
           >
             Stamp duty calculator

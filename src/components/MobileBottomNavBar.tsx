@@ -4,9 +4,9 @@ export const MobileBottomNavBar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="fixed flex flex-nowrap z-10 bottom-0 left-0 bg-dark-green w-full sm:hidden">
+      <div className="fixed flex flex-nowrap z-10 bottom-0 left-0 bg-beige w-full sm:hidden">
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
           onClick={() => {
             navigate({ to: "/" });
           }}
@@ -23,7 +23,7 @@ export const MobileBottomNavBar = () => {
           <span>Home</span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
           onClick={() => {
             navigate({ to: "/about" });
           }}
@@ -41,7 +41,7 @@ export const MobileBottomNavBar = () => {
           <span>About</span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
           onClick={() => {
             navigate({ to: "/services" });
           }}
@@ -63,7 +63,7 @@ export const MobileBottomNavBar = () => {
           <span>Services</span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
           onClick={() => {
             navigate({ to: "/affordabilityCalculator" });
           }}
@@ -83,7 +83,7 @@ export const MobileBottomNavBar = () => {
           </span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-green hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
           onClick={() => {
             navigate({ to: "/contact" });
           }}

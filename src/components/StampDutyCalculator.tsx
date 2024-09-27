@@ -48,7 +48,7 @@ export const StampDutyCalculator = () => {
         </p>
         <label className="font-semibold">Property price:</label>
         <div className="flex mt-4">
-          <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+          <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
             £
           </span>
           <InputNumberFormat
@@ -106,7 +106,7 @@ export const StampDutyCalculator = () => {
 
         <button
           type="submit"
-          className="p-2 w-48 rounded-full text-white text-base bg-dark-green cursor-pointer hover:bg-light-green sm:w-60 mt-10"
+          className="p-2 w-48 rounded-full  text-base bg-beige cursor-pointer hover:bg-light-green sm:w-60 mt-10"
         >
           Calculate
         </button>

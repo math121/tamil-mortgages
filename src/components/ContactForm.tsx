@@ -139,7 +139,7 @@ export const ContactForm = () => {
 
       <button
         type="submit"
-        className="p-2 w-32 rounded-full text-white text-base bg-dark-green cursor-pointer hover:bg-light-green sm:w-60 mt-10"
+        className="p-2 w-32 rounded-full text-base bg-beige cursor-pointer hover:bg-light-green sm:w-60 mt-10"
       >
         Send
       </button>

@@ -100,7 +100,7 @@ export const AffordabilityCalc = () => {
           {radioNum === 1 ? "Your Annual Income" : "Person 1 - Annual Income:"}
         </label>
         <div className="flex">
-          <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+          <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
             £
           </span>
           <InputNumberFormat
@@ -128,7 +128,7 @@ export const AffordabilityCalc = () => {
           {"(including credit cards, loans, bills)"}
         </p>
         <div className="flex">
-          <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+          <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
             £
           </span>
           <InputNumberFormat
@@ -153,7 +153,7 @@ export const AffordabilityCalc = () => {
               Person 2 - Annual Income:
             </label>
             <div className="flex">
-              <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+              <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
                 £
               </span>
               <InputNumberFormat
@@ -179,7 +179,7 @@ export const AffordabilityCalc = () => {
               {"(including credit cards, loans, bills)"}
             </p>
             <div className="flex">
-              <span className="inline-flex items-center px-4 text-sm bg-lightest-green rounded-s-md font-bold">
+              <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
                 £
               </span>
               <InputNumberFormat
@@ -202,7 +202,7 @@ export const AffordabilityCalc = () => {
 
         <button
           type="submit"
-          className="p-2 w-48 rounded-full text-white text-base bg-dark-green cursor-pointer hover:bg-light-green sm:w-60 block mt-10"
+          className="p-2 w-48 rounded-full text-base bg-beige cursor-pointer hover:bg-light-green sm:w-60 block mt-10"
         >
           Calculate
         </button>
