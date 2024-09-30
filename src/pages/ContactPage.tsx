@@ -21,7 +21,7 @@ export const ContactPage = () => {
           <label className="font-semibold">Phone Number:</label>
           <p className="my-0">07799752777</p>
           <img
-            className="w-96 pt-9 hidden lg:block"
+            className="h-96 pt-9 hidden lg:block"
             src="/src/assets/contact-us-image.png"
             alt="Picture with UK houses"
           />
