@@ -72,7 +72,7 @@ export const StampDutyCalculator = () => {
               id="firstbuy"
               type="radio"
               value="First time buyer"
-              className="w-8 h-8 accent-dark-green cursor-pointer"
+              className="w-8 h-8 accent-orange-600 cursor-pointer"
               {...register("typeBuyer", {
                 required: "Select one of the options above",
               })}
@@ -87,7 +87,7 @@ export const StampDutyCalculator = () => {
               id="secondbuy"
               type="radio"
               value="Second time buyer/additional properties"
-              className="w-8 h-8 accent-dark-green cursor-pointer"
+              className="w-8 h-8 accent-orange-600 cursor-pointer"
               {...register("typeBuyer", {
                 required: "Select one of the options above",
               })}

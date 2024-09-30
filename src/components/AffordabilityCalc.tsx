@@ -65,7 +65,7 @@ export const AffordabilityCalc = () => {
               id="1"
               type="radio"
               value="1"
-              className="w-7 h-7 accent-orange-700 cursor-pointer"
+              className="w-7 h-7 accent-orange-600 cursor-pointer"
               {...register("numPeople", {
                 required: "Select one of the options above",
               })}
@@ -81,7 +81,7 @@ export const AffordabilityCalc = () => {
               id="2"
               type="radio"
               value="2"
-              className="w-7 h-7 accent-dark-green cursor-pointer"
+              className="w-7 h-7 accent-orange-600 cursor-pointer"
               {...register("numPeople", {
                 required: "Select one of the options above",
               })}
