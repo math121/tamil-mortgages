@@ -1,4 +1,6 @@
 import { ServiceBoxInfo } from "../utils/types";
+import LanguageContext from "../context/LanguageContext";
+import { useContext } from "react";
 
 export const ServiceBox = ({
   info,
@@ -9,6 +11,8 @@ export const ServiceBox = ({
   active: number;
   handleExpandCollapse: (id: number) => void;
 }) => {
+  const { language } = useContext(LanguageContext);
+
   return (
     <>
       <section
@@ -22,7 +26,9 @@ export const ServiceBox = ({
               src="/src/assets/services-tick.png"
               alt="green tick icon"
             />
-            <p className="uppercase">{info.title}</p>
+            <p className="uppercase">
+              {language != "english" ? info.title : info.engTitle}
+            </p>
           </div>
           <svg
             data-accordion-icon
@@ -45,7 +51,7 @@ export const ServiceBox = ({
         <p
           className={`mt-0 ${info.id === active ? `block` : `hidden`} sm:block`}
         >
-          {info.text}
+          {language != "english" ? info.text : info.engText}
         </p>
       </section>
     </>
