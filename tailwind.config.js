@@ -11,12 +11,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        beige: "#d2bfa3",
+        "dark-orange": "#ea7500",
+        "light-orange": "#f7a552",
       },
       fontFamily: {
         forum: ['"Forum"', ...defaultTheme.fontFamily.sans],
         nunito: ['"Nunito"', ...defaultTheme.fontFamily.sans],
         belleza: ['"Belleza"', ...defaultTheme.fontFamily.sans],
+        "tiro-tamil": ['"Tiro Tamil"', ...defaultTheme.fontFamily.sans],
       },
     },
   },
