@@ -6,7 +6,7 @@ export const MobileBottomNavBar = () => {
     <>
       <div className="fixed flex flex-nowrap z-10 bottom-0 left-0 bg-dark-orange w-full sm:hidden">
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-orange text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/" });
           }}
@@ -23,7 +23,7 @@ export const MobileBottomNavBar = () => {
           <span>Home</span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-orange text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/about" });
           }}
@@ -41,7 +41,7 @@ export const MobileBottomNavBar = () => {
           <span>About</span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-orange text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/services" });
           }}
@@ -64,7 +64,7 @@ export const MobileBottomNavBar = () => {
         </button>
 
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-orange text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/contact" });
           }}
@@ -82,7 +82,7 @@ export const MobileBottomNavBar = () => {
           <span>Contact us</span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-orange text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/" });
           }}

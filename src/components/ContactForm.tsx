@@ -139,7 +139,10 @@ export const ContactForm = () => {
 
       <button
         type="submit"
-        className="p-2 w-32 rounded-full text-base font-bold bg-dark-orange cursor-pointer hover:bg-light-orange sm:w-60 mt-10"
+        className="p-2 w-32 text-base font-bold bg-dark-orange cursor-pointer hover:bg-light-orange sm:w-60 mt-10 text-black
+        active:translate-y-2 active:translate-x-2  active:[box-shadow:0_0px_0_0_#ea7500,0_0px_0_0_#ea7500]
+        transition-all duration-150 [box-shadow:4px_2px_0_0_#c5670a,4px_5px_0_0_#c5670a] border-[1px] border-dark-orange
+        "
       >
         Send
       </button>

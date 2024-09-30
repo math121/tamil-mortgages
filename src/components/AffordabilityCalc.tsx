@@ -203,7 +203,10 @@ export const AffordabilityCalc = () => {
 
         <button
           type="submit"
-          className="p-2 w-48 rounded-full text-base bg-dark-orange cursor-pointer hover:bg-light-green sm:w-60 block mt-10 font-bold"
+          className="p-2 w-48 text-base bg-dark-orange cursor-pointer hover:bg-light-green sm:w-60 block mt-10 font-bold text-black 
+          active:translate-y-2 active:translate-x-2  active:[box-shadow:0_0px_0_0_#ea7500,0_0px_0_0_#ea7500]
+          transition-all duration-150 [box-shadow:4px_2px_0_0_#c5670a,4px_5px_0_0_#c5670a] border-[1px] border-dark-orange
+          "
         >
           Calculate
         </button>

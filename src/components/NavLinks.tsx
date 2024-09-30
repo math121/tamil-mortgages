@@ -35,6 +35,16 @@ export const NavLinks = () => {
             Home
           </Link>
           <Link
+            to="/about"
+            className={`text-black no-underline hover:bg-light-orange py-5 px-4 ${
+              location.pathname === "/about"
+                ? "border-dark-orange bg-light-orange"
+                : ""
+            } `}
+          >
+            About us
+          </Link>
+          <Link
             to="/services"
             className={`text-black no-underline hover:bg-light-orange py-5 px-4 ${
               location.pathname === "/services"
@@ -64,16 +74,7 @@ export const NavLinks = () => {
           >
             Stamp duty calculator
           </Link>
-          <Link
-            to="/about"
-            className={`text-black no-underline hover:bg-light-orange py-5 px-4 ${
-              location.pathname === "/about"
-                ? "border-dark-orange bg-light-orange"
-                : ""
-            } `}
-          >
-            About us
-          </Link>
+
           <Link
             to="/contact"
             className={`text-black no-underline hover:bg-light-orange py-5 px-4 ${
@@ -83,6 +84,16 @@ export const NavLinks = () => {
             } `}
           >
             Contact us
+          </Link>
+          <Link
+            to="/"
+            className={`text-black no-underline hover:bg-light-orange py-5 px-4 ${
+              location.pathname === "/faq"
+                ? "border-dark-orange bg-light-orange"
+                : ""
+            } `}
+          >
+            FAQ
           </Link>
         </div>
       </nav>

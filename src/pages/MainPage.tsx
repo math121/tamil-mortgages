@@ -16,7 +16,7 @@ export const MainPage = () => {
       <div className="md:pt-10">
         {language != "english" ? (
           // prettier-ignore
-          <p className="font-tiro-tamil font-bold italic text-xl my-4 ml-2 lg:text-4xl  stroke-[5px] text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] whitespace-pre text-wrap">
+          <p className="font-tiro-tamil font-bold italic text-xl my-4 ml-2 lg:text-4xl  stroke-[5px] text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] whitespace-pre-wrap">
             எங்கள்  மிது  நம்பிக்கை  வைத்து  உங்கள்  இலட்சியத்தை  நிறைவேற்றுங்கள்.
           </p>
         ) : (
@@ -70,21 +70,30 @@ export const MainPage = () => {
           )}
         </div>
 
-        <div className="flex flex-col mx-16 mt-7 gap-4 md:w-fit md:ml-0 md:gap-7 md:mt-14">
+        <div className="flex flex-col mx-16 mt-7 gap-7">
           <button
-            className="p-2 rounded-full bg-dark-orange hover:bg-light-orange cursor-pointer text-base md:px-24 font-bold"
+            className="p-2 bg-dark-orange hover:bg-light-orange cursor-pointer text-base md:px-24 font-bold text-black
+            active:translate-y-2 active:translate-x-2  active:[box-shadow:0_0px_0_0_#ea7500,0_0px_0_0_#ea7500]
+            transition-all duration-150 [box-shadow:4px_2px_0_0_#c5670a,4px_5px_0_0_#c5670a] border-[1px] border-dark-orange
+            "
             onClick={() => navigate({ to: "/services" })}
           >
             Services
           </button>
           <button
-            className="p-2 rounded-full bg-dark-orange cursor-pointer hover:bg-light-orange text-base font-bold"
+            className="p-2 bg-dark-orange cursor-pointer hover:bg-light-orange text-base font-bold text-black
+            active:translate-y-2 active:translate-x-2  active:[box-shadow:0_0px_0_0_#ea7500,0_0px_0_0_#ea7500]
+            transition-all duration-150 [box-shadow:4px_2px_0_0_#c5670a,4px_5px_0_0_#c5670a] border-[1px] border-dark-orange
+            "
             onClick={() => navigate({ to: "/affordabilityCalculator" })}
           >
             Affordability calculator
           </button>
           <button
-            className="p-2 rounded-full bg-dark-orange cursor-pointer hover:bg-light-orange text-base font-bold"
+            className="p-2 bg-dark-orange cursor-pointer hover:bg-light-orange text-base font-bold text-black
+            active:translate-y-2 active:translate-x-2  active:[box-shadow:0_0px_0_0_#ea7500,0_0px_0_0_#ea7500]
+            transition-all duration-150 [box-shadow:4px_2px_0_0_#c5670a,4px_5px_0_0_#c5670a] border-[1px] border-dark-orange
+            "
             onClick={() => navigate({ to: "/stampDutyCalculator" })}
           >
             Stamp duty calculator
