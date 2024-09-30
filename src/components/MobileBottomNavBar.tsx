@@ -4,9 +4,9 @@ export const MobileBottomNavBar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="fixed flex flex-nowrap z-10 bottom-0 left-0 bg-beige w-full sm:hidden">
+      <div className="fixed flex flex-nowrap z-10 bottom-0 left-0 bg-dark-orange w-full sm:hidden">
         <button
-          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/" });
           }}
@@ -23,7 +23,7 @@ export const MobileBottomNavBar = () => {
           <span>Home</span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/about" });
           }}
@@ -41,7 +41,7 @@ export const MobileBottomNavBar = () => {
           <span>About</span>
         </button>
         <button
-          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/services" });
           }}
@@ -62,28 +62,9 @@ export const MobileBottomNavBar = () => {
 
           <span>Services</span>
         </button>
+
         <button
-          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
-          onClick={() => {
-            navigate({ to: "/affordabilityCalculator" });
-          }}
-        >
-          <svg
-            className="w-5 h-5 mb-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path d="M4 4c0-.975.718-2 1.875-2h12.25C19.282 2 20 3.025 20 4v16c0 .975-.718 2-1.875 2H5.875C4.718 22 4 20.975 4 20V4Zm7 13a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Z" />
-          </svg>
-          <span>
-            Afford/ <br />
-            Stamp
-          </span>
-        </button>
-        <button
-          className="inline-flex flex-col items-center p-4 bg-beige hover:bg-light-green text-white flex-grow"
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
           onClick={() => {
             navigate({ to: "/contact" });
           }}
@@ -98,7 +79,29 @@ export const MobileBottomNavBar = () => {
             <path d="M2.038 5.61A2.01 2.01 0 0 0 2 6v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6c0-.12-.01-.238-.03-.352l-.866.65-7.89 6.032a2 2 0 0 1-2.429 0L2.884 6.288l-.846-.677Z" />
             <path d="M20.677 4.117A1.996 1.996 0 0 0 20 4H4c-.225 0-.44.037-.642.105l.758.607L12 10.742 19.9 4.7l.777-.583Z" />
           </svg>
-          <span>Contact</span>
+          <span>Contact us</span>
+        </button>
+        <button
+          className="inline-flex flex-col items-center p-4 bg-dark-orange hover:bg-light-green text-black flex-grow font-bold"
+          onClick={() => {
+            navigate({ to: "/" });
+          }}
+        >
+          <svg
+            className="w-5 h-5 mb-2"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fillRule="evenodd"
+              d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z"
+              clipRule="evenodd"
+            />
+          </svg>
+
+          <span>FAQ</span>
         </button>
       </div>
     </>

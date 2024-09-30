@@ -6,13 +6,13 @@ export const NavLinks = () => {
   const { chooseEnglish, chooseTamil } = useContext(LanguageContext);
 
   return (
-    <div className="hidden sm:block">
-      <nav>
-        <div className="ml-auto mr-0 w-fit">
+    <div className="hidden sm:block bg-dark-orange">
+      <nav className="font-bold">
+        <div className=" bg-light-orange flex justify-end">
           <button onClick={chooseTamil}>Tamil</button>
           <button onClick={chooseEnglish}>English</button>
         </div>
-        <div className="flex gap-7 py-5 pl-3 text-base">
+        <div className="flex gap-7 py-5 pl-3 text-base w-fit mx-auto">
           <Link
             to="/"
             className="text-black no-underline hover:underline hover:font-bold"

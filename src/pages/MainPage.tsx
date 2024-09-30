@@ -15,8 +15,9 @@ export const MainPage = () => {
       />
       <div className="md:pt-10">
         {language != "english" ? (
-          <p className="font-forum font-bold italic text-lg my-4 ml-2 lg:text-4xl">
-            எங்கள் மிது நம்பிக்கை வைத்து உங்கள் இலட்சியத்தை நிறைவேற்றுங்கள்.
+          // prettier-ignore
+          <p className="font-tiro-tamil font-bold italic text-xl my-4 ml-2 lg:text-4xl  stroke-[5px] text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] whitespace-pre text-wrap">
+            எங்கள்  மிது  நம்பிக்கை  வைத்து  உங்கள்  இலட்சியத்தை  நிறைவேற்றுங்கள்.
           </p>
         ) : (
           <p>ENGLISH</p>
@@ -71,19 +72,19 @@ export const MainPage = () => {
 
         <div className="flex flex-col mx-16 mt-7 gap-4 md:w-fit md:ml-0 md:gap-7 md:mt-14">
           <button
-            className="p-2 rounded-full bg-beige hover:bg-light-green cursor-pointer text-base md:px-24"
+            className="p-2 rounded-full bg-dark-orange hover:bg-light-orange cursor-pointer text-base md:px-24 font-bold"
             onClick={() => navigate({ to: "/services" })}
           >
             Services
           </button>
           <button
-            className="p-2 rounded-full bg-beige cursor-pointer hover:bg-light-green text-base"
+            className="p-2 rounded-full bg-dark-orange cursor-pointer hover:bg-light-orange text-base font-bold"
             onClick={() => navigate({ to: "/affordabilityCalculator" })}
           >
             Affordability calculator
           </button>
           <button
-            className="p-2 rounded-full bg-beige cursor-pointer hover:bg-light-green text-base"
+            className="p-2 rounded-full bg-dark-orange cursor-pointer hover:bg-light-orange text-base font-bold"
             onClick={() => navigate({ to: "/stampDutyCalculator" })}
           >
             Stamp duty calculator

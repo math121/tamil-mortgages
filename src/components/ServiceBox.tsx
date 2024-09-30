@@ -26,7 +26,7 @@ export const ServiceBox = ({
               src="/src/assets/services-tick.png"
               alt="green tick icon"
             />
-            <p className="uppercase">
+            <p className="uppercase font-bold md:text-lg">
               {language != "english" ? info.title : info.engTitle}
             </p>
           </div>

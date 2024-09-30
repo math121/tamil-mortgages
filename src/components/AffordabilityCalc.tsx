@@ -65,7 +65,7 @@ export const AffordabilityCalc = () => {
               id="1"
               type="radio"
               value="1"
-              className="w-7 h-7 accent-dark-green cursor-pointer"
+              className="w-7 h-7 accent-orange-700 cursor-pointer"
               {...register("numPeople", {
                 required: "Select one of the options above",
               })}
@@ -100,11 +100,11 @@ export const AffordabilityCalc = () => {
           {radioNum === 1 ? "Your Annual Income" : "Person 1 - Annual Income:"}
         </label>
         <div className="flex">
-          <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
+          <span className="inline-flex items-center px-4 text-sm bg-light-orange rounded-s-md font-bold">
             £
           </span>
           <InputNumberFormat
-            className="text-sm p-2 rounded-e-md border border-dark-green w-64"
+            className="text-sm p-2 rounded-e-md border w-64"
             autoComplete="off"
             maximumFractionDigits={0}
             {...register("income1", {
@@ -128,11 +128,11 @@ export const AffordabilityCalc = () => {
           {"(including credit cards, loans, bills)"}
         </p>
         <div className="flex">
-          <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
+          <span className="inline-flex items-center px-4 text-sm bg-light-orange rounded-s-md font-bold">
             £
           </span>
           <InputNumberFormat
-            className="text-sm p-2 rounded-e-md border border-dark-green w-64"
+            className="text-sm p-2 rounded-e-md border w-64"
             autoComplete="off"
             maximumFractionDigits={0}
             {...register("totalOutgoings1", {
@@ -153,7 +153,7 @@ export const AffordabilityCalc = () => {
               Person 2 - Annual Income:
             </label>
             <div className="flex">
-              <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
+              <span className="inline-flex items-center px-4 text-sm bg-light-orange rounded-s-md font-bold">
                 £
               </span>
               <InputNumberFormat
@@ -179,7 +179,7 @@ export const AffordabilityCalc = () => {
               {"(including credit cards, loans, bills)"}
             </p>
             <div className="flex">
-              <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
+              <span className="inline-flex items-center px-4 text-sm bg-light-orange rounded-s-md font-bold">
                 £
               </span>
               <InputNumberFormat
@@ -202,7 +202,7 @@ export const AffordabilityCalc = () => {
 
         <button
           type="submit"
-          className="p-2 w-48 rounded-full text-base bg-beige cursor-pointer hover:bg-light-green sm:w-60 block mt-10"
+          className="p-2 w-48 rounded-full text-base bg-dark-orange cursor-pointer hover:bg-light-green sm:w-60 block mt-10 font-bold"
         >
           Calculate
         </button>

@@ -48,11 +48,11 @@ export const StampDutyCalculator = () => {
         </p>
         <label className="font-semibold">Property price:</label>
         <div className="flex mt-4">
-          <span className="inline-flex items-center px-4 text-sm bg-beige rounded-s-md font-bold">
+          <span className="inline-flex items-center px-4 text-sm bg-light-orange rounded-s-md font-bold">
             £
           </span>
           <InputNumberFormat
-            className="text-sm p-2 rounded-e-md border border-dark-green w-64"
+            className="text-sm p-2 rounded-e-md border w-64"
             maximumFractionDigits={0}
             {...register("propertyPrice", {
               required: "This is a required field",
@@ -106,7 +106,7 @@ export const StampDutyCalculator = () => {
 
         <button
           type="submit"
-          className="p-2 w-48 rounded-full  text-base bg-beige cursor-pointer hover:bg-light-green sm:w-60 mt-10"
+          className="p-2 w-48 rounded-full font-bold text-base bg-dark-orange cursor-pointer hover:bg-light-green sm:w-60 mt-10"
         >
           Calculate
         </button>
@@ -114,7 +114,7 @@ export const StampDutyCalculator = () => {
 
       {result && rate && (
         <div>
-          <section className="border-2 border-solid border-dark-green rounded-xl px-2 mt-10">
+          <section className="border-2 border-solid rounded-xl px-2 mt-10">
             <div className="pl-3">
               <p>Stamp duty on your first property/additional property is</p>
               <p className="font-bold text-2xl my-0">{result}</p>

@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 export const Footer = () => {
   return (
     <>
-      <footer className="flex flex-col bg-beige content-start -mx-2 sm:-mb-2 sm:mt-10 pb-24 sm:pb-0">
+      <footer className="flex flex-col content-start -mx-2 sm:-mb-2 sm:mt-10 pb-24 sm:pb-0 bg-light-orange font-bold">
         <nav className="hidden sm:flex justify-center p-3 pt-5 gap-10 md:justify-normal md:pl-4 md:pt-8">
           <Link
             to="/services"
@@ -25,7 +25,9 @@ export const Footer = () => {
           </Link>
         </nav>
 
-        <p className="bg-beige p-4 m-0 text-start">© 2024 Tamilian Mortgage</p>
+        <p className="bg-light-orange p-4 m-0 text-start">
+          © 2024 Tamilian Mortgage
+        </p>
       </footer>
     </>
   );
