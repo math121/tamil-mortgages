@@ -8,7 +8,7 @@ export const NavLinks = () => {
   return (
     <div className="hidden sm:block">
       <nav>
-        <div className="">
+        <div className="ml-auto mr-0 w-fit">
           <button onClick={chooseTamil}>Tamil</button>
           <button onClick={chooseEnglish}>English</button>
         </div>

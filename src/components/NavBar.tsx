@@ -3,8 +3,12 @@ import { NavLinks } from "./NavLinks";
 import { Footer } from "./Footer";
 import { ScrollRestoration } from "@tanstack/react-router";
 import { MobileBottomNavBar } from "./MobileBottomNavBar";
+import { useContext } from "react";
+import LanguageContext from "../context/LanguageContext";
 
 export const NavBar = () => {
+  const { chooseEnglish, chooseTamil } = useContext(LanguageContext);
+
   return (
     <>
       <ScrollRestoration />
@@ -24,7 +28,7 @@ export const NavBar = () => {
                 TAMILIAN
               </p>
               <div className="inline-flex items-center justify-center">
-                <hr className="w-52 h-px bg-black" />
+                <hr className="w-48 h-px bg-black" />
                 <span className="absolute px-3 text-black bg-beige font-belleza font-bold text-[14px] lg:text-lg">
                   MORTGAGES
                 </span>
@@ -37,6 +41,10 @@ export const NavBar = () => {
           </Link>
         </div>
         <NavLinks />
+        <div className="ml-auto mr-0 w-fit sm:hidden">
+          <button onClick={chooseTamil}>Tamil</button>
+          <button onClick={chooseEnglish}>English</button>
+        </div>
       </nav>
 
       <MobileBottomNavBar />
