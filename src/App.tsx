@@ -1,5 +1,6 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
 import { routeTree } from "./routeTree.gen";
+import { LanguageProvider } from "./context/LanguageContext";
 
 // Set up a Router instance
 const router = createRouter({
@@ -17,7 +18,9 @@ declare module "@tanstack/react-router" {
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <LanguageProvider>
+        <RouterProvider router={router} />
+      </LanguageProvider>
     </>
   );
 }
