@@ -42,6 +42,7 @@ export const StampDutyCalculator = () => {
         className="md:w-6/12"
         autoComplete="off"
       >
+        <h1 className="hidden sm:block">Stamp Duty Calculator</h1>
         <p>
           Specify the property price in pounds and tick the box if you are a
           first time buyer or a second time buyer/ buying additional properties

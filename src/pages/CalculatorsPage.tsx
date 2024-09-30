@@ -7,13 +7,13 @@ export const CalculatorsPage = () => {
   return (
     <>
       <div
-        className="flex justify-center pt-4 gap-5 border-solid border-0 border-b border-gray-500 sm:justify-normal sm:mx-5"
+        className="flex justify-center pt-4 gap-5 border-solid border-0 border-b border-light-orange sm:hidden"
         role="tablist"
       >
         <button
-          className={`pb-3.5 pt-4 text-sm uppercase border-0 bg-white hover:text-dark-green  ${
+          className={`pb-3.5 pt-4 text-sm uppercase border-0 bg-white hover:text-dark-orange  ${
             location.pathname === "/affordabilityCalculator"
-              ? "text-dark-green font-bold border-solid border-b-2 border-dark-green"
+              ? "text-dark-orange font-bold border-solid border-b-2 border-dark-orange"
               : "text-gray-500"
           } `}
           onClick={() => {
@@ -23,9 +23,9 @@ export const CalculatorsPage = () => {
           Affordability calculator
         </button>
         <button
-          className={`pb-3.5 pt-4 text-sm uppercase border-0 bg-white hover:text-dark-green  ${
+          className={`pb-3.5 pt-4 text-sm uppercase border-0 bg-white hover:text-dark-orange  ${
             location.pathname === "/stampDutyCalculator"
-              ? "text-dark-green font-bold border-solid border-b-2 border-dark-green"
+              ? "text-dark-orange font-bold border-solid border-b-2 border-dark-orange"
               : "text-gray-500"
           } `}
           onClick={() => {

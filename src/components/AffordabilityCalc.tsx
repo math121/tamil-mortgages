@@ -57,6 +57,7 @@ export const AffordabilityCalc = () => {
         onSubmit={handleSubmit(calculateAffordability)}
         className="md:w-3/6"
       >
+        <h1 className="hidden sm:block">Affordability Calculator</h1>
         <p>Estimate how much you can borrow for your next property.</p>
         <label className="font-semibold block">No. of people applying:</label>
         <fieldset className="border-none pt-0 flex justify-normal gap-7 mt-4">
