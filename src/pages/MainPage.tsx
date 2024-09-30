@@ -1,7 +1,10 @@
 import { useNavigate } from "@tanstack/react-router";
+import LanguageContext from "../context/LanguageContext";
+import { useContext } from "react";
 
 export const MainPage = () => {
   const navigate = useNavigate();
+  const { language } = useContext(LanguageContext);
 
   return (
     <div className="md:grid grid-cols-2 lg:pl-4 md:gap-3 lg:gap-8 lg:pr-20">
@@ -11,19 +14,27 @@ export const MainPage = () => {
         alt="Picture with UK houses"
       />
       <div className="md:pt-10">
-        <p className="font-forum font-bold italic text-lg my-4 ml-2 lg:text-4xl">
-          எங்கள் மிது நம்பிக்கை வைத்து உங்கள் இலட்சியத்தை நிறைவேற்றுங்கள்.
-        </p>
+        {language != "english" ? (
+          <p className="font-forum font-bold italic text-lg my-4 ml-2 lg:text-4xl">
+            எங்கள் மிது நம்பிக்கை வைத்து உங்கள் இலட்சியத்தை நிறைவேற்றுங்கள்.
+          </p>
+        ) : (
+          <p>ENGLISH</p>
+        )}
         <div className="flex items-center gap-2 ml-2 md:pr-4">
           <img
             className="h-8"
             src="/src/assets/frontpage-tick.png"
             alt="green tick icon"
           />
-          <p className="my-4 font-semibold text-sm md:text-lg lg:text-xl">
-            உங்கள் அடமான பங்குதாரர்- கடன் அல்லது வருமானம் எதுவும் செய்ய கடினமாக
-            உள்ளதா?
-          </p>
+          {language != "english" ? (
+            <p className="my-4 font-semibold text-sm md:text-lg lg:text-xl">
+              உங்கள் அடமான பங்குதாரர்- கடன் அல்லது வருமானம் எதுவும் செய்ய
+              கடினமாக உள்ளதா?
+            </p>
+          ) : (
+            <p>ENGLISH</p>
+          )}
         </div>
 
         <div className="flex items-center gap-2 ml-2 md:pr-4">
@@ -32,10 +43,14 @@ export const MainPage = () => {
             src="/src/assets/frontpage-tick.png"
             alt="green tick icon"
           />
-          <p className="my-4 font-semibold text-sm md:text-lg lg:text-xl">
-            எங்களுடைய திறமை யாராய் இருந்தாலும் வீடு வாங்குவதற்கு இலகுவான
-            முறையில் எல்லா விதமான உதவிகளும் சேய்து தரப்படும்
-          </p>
+          {language != "english" ? (
+            <p className="my-4 font-semibold text-sm md:text-lg lg:text-xl">
+              எங்களுடைய திறமை யாராய் இருந்தாலும் வீடு வாங்குவதற்கு இலகுவான
+              முறையில் எல்லா விதமான உதவிகளும் சேய்து தரப்படும்
+            </p>
+          ) : (
+            <p>ENGLISH</p>
+          )}
         </div>
 
         <div className="flex items-center gap-2 ml-2 md:pr-4">
@@ -44,10 +59,14 @@ export const MainPage = () => {
             src="/src/assets/frontpage-tick.png"
             alt="green tick icon"
           />
-          <p className="my-2 font-semibold text-sm md:text-lg lg:text-xl">
-            நம்பி அழைப்பில் முன்பதிவு செய்து கொள்ளுங்கள் உங்களின் அனைத்து
-            தேவைகளை புர்த்தி சேய்யும் ஒரே இடம் T.M
-          </p>
+          {language != "english" ? (
+            <p className="my-2 font-semibold text-sm md:text-lg lg:text-xl">
+              நம்பி அழைப்பில் முன்பதிவு செய்து கொள்ளுங்கள் உங்களின் அனைத்து
+              தேவைகளை புர்த்தி சேய்யும் ஒரே இடம் T.M
+            </p>
+          ) : (
+            <p>ENGLISH</p>
+          )}
         </div>
 
         <div className="flex flex-col mx-16 mt-7 gap-4 md:w-fit md:ml-0 md:gap-7 md:mt-14">

@@ -8,7 +8,7 @@ export const NavBar = () => {
   return (
     <>
       <ScrollRestoration />
-      <nav className="bg-beige rounded-lg sm:px-3 flex items-center justify-between">
+      <nav className="bg-beige rounded-lg sm:px-3 lg:flex items-center justify-between gap-5">
         <div className="flex items-center justify-between p-2 pr-4">
           <Link
             to="/"
